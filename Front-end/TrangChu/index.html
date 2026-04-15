@@ -1,0 +1,897 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="BASILICO – Nhà hàng Pháp cao cấp. Trải nghiệm ẩm thực tinh tế, đặt bàn trực tuyến và khám phá thực đơn đặc biệt.">
+  <title>BASILICO | Nhà Hàng</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../../global.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ==========================================
+       PRELOADER — Màn hình tải trang
+       ========================================== -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <span class="preloader-logo">BASILICO</span>
+      <div class="preloader-progress">
+        <div class="preloader-progress-bar" id="preloaderBar"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       PHẦN 1: HEADER — Thanh điều hướng
+       ========================================== -->
+  <header id="sec-01" class="site-header">
+    <nav class="navbar navbar-expand-lg" aria-label="Điều hướng chính">
+      <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand" href="../TrangChu/index.html">
+          <span class="logo-text">BASILICO</span>
+        </a>
+
+        <!-- Menu chính (hiển thị trên desktop) -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarMain">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link active" href="../TrangChu/index.html" aria-current="page">TRANG
+                CHỦ</a></li>
+            <li class="nav-item"><a class="nav-link" href="../ThucDon/index.html">THỰC ĐƠN</a></li>
+            <li class="nav-item"><a class="nav-link" href="../GioiThieu/index.html">GIỚI THIỆU</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Blog/index.html">TIN TỨC</a></li>
+            <li class="nav-item"><a class="nav-link" href="../LienHe/index.html">LIÊN HỆ</a></li>
+          </ul>
+        </div>
+
+        <!-- Nút hành động (bên phải) -->
+        <div class="header-actions">
+          <a href="../DatBan/index.html" class="btn btn-book-table">ĐẶT BÀN</a>
+          <button class="hamburger-btn d-lg-none" id="hd-10" type="button" aria-label="Mở menu điều hướng"
+            aria-expanded="false">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- ==========================================
+       SIDEBAR — Menu trên điện thoại
+       ========================================== -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <aside class="mobile-sidebar" id="mobileSidebar" aria-label="Menu di động">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Đóng menu">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="../TrangChu/index.html" class="active">TRANG CHỦ</a></li>
+        <li><a href="../ThucDon/index.html">THỰC ĐƠN</a></li>
+        <li><a href="../GioiThieu/index.html">GIỚI THIỆU</a></li>
+        <li><a href="../Blog/index.html">TIN TỨC</a></li>
+        <li><a href="../LienHe/index.html">LIÊN HỆ</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-cta">
+      <a href="../DatBan/index.html" class="btn btn-book-table w-100">ĐẶT BÀN NGAY</a>
+    </div>
+    <div class="sidebar-social">
+      <a href="https://facebook.com/basilico" target="_blank" rel="noopener" aria-label="Facebook"><i
+          class="bi bi-facebook"></i></a>
+      <a href="https://instagram.com/basilico" target="_blank" rel="noopener" aria-label="Instagram"><i
+          class="bi bi-instagram"></i></a>
+      <a href="mailto:Basilicofood123@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
+    </div>
+  </aside>
+
+
+  <main id="main-content">
+
+    <!-- ==========================================
+       PHẦN 2: HERO — Ảnh nền toàn màn hình
+       ========================================== -->
+    <section id="sec-02" class="hero-section">
+      <div class="hero-bg">
+        <img src="../../assets/french_restaurant_hero.png" alt="Không gian nhà hàng BASILICO sang trọng"
+          loading="eager">
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content container">
+        <div class="hero-text">
+          <span class="eyebrow animate-entry">Khám Phá Hương Vị</span>
+          <h1 class="animate-entry">Dành cho tình yêu<br>ẩm thực <em>tuyệt vời</em></h1>
+          <p class="animate-entry">
+            Trải nghiệm ẩm thực Pháp tinh tế được chế biến với đam mê,<br>
+            nguyên liệu cao cấp và nghệ thuật ẩm thực đỉnh cao.
+          </p>
+          <div class="hero-cta-group animate-entry">
+            <a href="#sec-10" class="btn btn-cta-primary btn-pulse-glow">ĐẶT BÀN</a>
+            <a href="#sec-05" class="btn btn-cta-ghost">XEM THỰC ĐƠN</a>
+          </div>
+        </div>
+
+        <div class="hero-phone animate-entry">
+          <a href="tel:0901234567" class="phone-link">
+            <i class="bi bi-telephone-fill"></i>
+            <span>090-123-4567</span>
+          </a>
+          <small>GỌI NGAY ĐỂ ĐẶT BÀN &amp; GIAO HÀNG</small>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+       PHẦN 3: GIỚI THIỆU — Về nhà hàng
+       ========================================== -->
+    <section id="sec-03" class="section-about">
+      <div class="container">
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-5 reveal-left">
+            <div class="about-image-wrapper img-zoom-container">
+              <div class="about-deco-block"></div>
+              <img src="../../assets/french_salmon.png" alt="Cá hồi nướng thảo mộc trên đĩa sứ" class="about-img"
+                loading="lazy">
+            </div>
+          </div>
+
+          <div class="col-lg-7 reveal-right">
+            <span class="eyebrow">VỀ NHÀ HÀNG</span>
+            <h2 data-text-reveal>Nơi Bạn Có Thể Thưởng Thức Ẩm Thực Tinh Tế</h2>
+            <p>
+              Tại BASILICO, chúng tôi tin rằng bữa ăn không chỉ đơn thuần là ăn uống —
+              đó là một trải nghiệm. Các đầu bếp của chúng tôi kết hợp kỹ thuật Pháp
+              truyền thống với nguyên liệu tươi ngon nhất để tạo ra những món ăn
+              chiều lòng mọi giác quan.
+            </p>
+            <p>
+              Từ năm 2010, chúng tôi đã phục vụ những bữa ăn khó quên trong không gian
+              ấm cúng và sang trọng. Từ món Vịt Confit đặc trưng đến thực đơn theo mùa,
+              mỗi món ăn đều kể một câu chuyện về đam mê và sự hoàn hảo.
+            </p>
+            <a href="../GioiThieu/index.html" class="btn btn-outline-dark">TÌM HIỂU THÊM</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+       PHẦN 4: GIỜ MỞ CỬA — Thời gian phục vụ
+       ========================================== -->
+    <section id="sec-04" class="section-hours">
+      <div class="container">
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-7 reveal-left">
+            <h2>Giờ Mở Cửa <em>Phục Vụ</em></h2>
+
+            <!-- Giờ chung -->
+            <div class="hours-row">
+              <span>Thứ Hai – Thứ Sáu</span>
+              <span class="hours-dots"></span>
+              <span>08:00 – 22:00</span>
+            </div>
+            <div class="hours-row">
+              <span>Thứ Bảy</span>
+              <span class="hours-dots"></span>
+              <span>10:00 – 23:00</span>
+            </div>
+            <div class="hours-row">
+              <span>Chủ Nhật</span>
+              <span class="hours-dots"></span>
+              <span>10:00 – 21:00</span>
+            </div>
+            <div class="hours-row hours-closed">
+              <span>Ngày Lễ</span>
+              <span class="hours-dots"></span>
+              <span>NGHỈ</span>
+            </div>
+
+            <!-- Giờ chi tiết -->
+            <div class="row mt-4">
+              <div class="col-sm-6">
+                <h5 class="hours-subtitle"><i class="bi bi-sunrise"></i> Bữa Sáng</h5>
+                <div class="hours-row">
+                  <span>Thứ 2 – Thứ 6</span><span class="hours-dots"></span><span>08:00 – 10:30</span>
+                </div>
+                <div class="hours-row">
+                  <span>Thứ 7 – CN</span><span class="hours-dots"></span><span>09:00 – 11:00</span>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <h5 class="hours-subtitle"><i class="bi bi-moon-stars"></i> Trưa &amp; Tối</h5>
+                <div class="hours-row">
+                  <span>Thứ 2 – Thứ 6</span><span class="hours-dots"></span><span>11:30 – 22:00</span>
+                </div>
+                <div class="hours-row">
+                  <span>Thứ 7</span><span class="hours-dots"></span><span>12:00 – 23:00</span>
+                </div>
+                <div class="hours-row">
+                  <span>Chủ Nhật</span><span class="hours-dots"></span><span>12:00 – 21:00</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="#sec-10" class="btn btn-outline-dark mt-4">ĐẶT BÀN NGAY</a>
+          </div>
+
+          <div class="col-lg-5 reveal-right">
+            <img src="../../assets/french_dining_experience.png" alt="Bàn ăn sang trọng với nến và hoa"
+              class="hours-img" loading="lazy">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+       PHẦN 5: THỰC ĐƠN ĐẶC BIỆT — Tabs chuyển món
+       ========================================== -->
+    <section id="sec-05" class="section-menu">
+      <div class="container">
+
+        <div class="text-center mb-5 reveal-up">
+          <span class="eyebrow eyebrow-light">MÓN ĐẶC SẮC</span>
+          <h2 class="text-white">Thực Đơn <em>Đặc Biệt</em></h2>
+          <p class="text-light mx-auto section-subtitle">
+            Thực đơn thay đổi theo mùa, mang đến tinh hoa ẩm thực Pháp
+            kết hợp cùng kỹ thuật chế biến hiện đại.
+          </p>
+        </div>
+
+        <!-- Thanh chuyển tab -->
+        <div class="menu-tabs reveal-up" role="tablist">
+          <button class="menu-tab active" data-tab="special" role="tab" aria-selected="true">MÓN ĐẶC BIỆT</button>
+          <button class="menu-tab" data-tab="drinks" role="tab" aria-selected="false">ĐỒ UỐNG</button>
+          <button class="menu-tab" data-tab="seafood" role="tab" aria-selected="false">HẢI SẢN</button>
+          <button class="menu-tab" data-tab="desserts" role="tab" aria-selected="false">TRÁNG MIỆNG</button>
+        </div>
+
+        <!-- Nội dung thực đơn -->
+        <div class="menu-content-wrapper">
+          <div class="menu-deco-left reveal-left">
+            <img src="../../assets/french_truffle_risotto.png" alt="Cơm nấm truffle" class="menu-deco-img"
+              loading="lazy">
+          </div>
+          <div class="menu-list" id="menuList" role="tabpanel"></div>
+          <div class="menu-deco-right reveal-right">
+            <img src="../../assets/french_cocktail_mojito.png" alt="Cocktail cổ điển" class="menu-deco-img"
+              loading="lazy">
+          </div>
+        </div>
+
+        <div class="text-center mt-5 reveal-up">
+          <a href="../ThucDon/index.html" class="btn btn-outline-gold">XEM TOÀN BỘ THỰC ĐƠN</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+       PHẦN 6: TẠI SAO CHỌN CHÚNG TÔI
+       ========================================== -->
+    <section id="sec-06" class="section-why">
+      <div class="container">
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-6 reveal-left">
+            <span class="eyebrow">TẠI SAO CHỌN CHÚNG TÔI</span>
+            <h2>Chúng Tôi Mang Đến<br><em>Ẩm Thực Hoàn Hảo</em></h2>
+
+            <div class="why-tabs" role="tablist">
+              <button class="why-tab" data-why="event" role="tab">SỰ KIỆN RIÊNG TƯ</button>
+              <button class="why-tab" data-why="safety" role="tab">AN TOÀN THỰC PHẨM</button>
+              <button class="why-tab active" data-why="luxury" role="tab">KHÔNG GIAN SANG TRỌNG</button>
+            </div>
+
+            <div class="why-content" id="whyContent"></div>
+            <a href="../GioiThieu/index.html" class="btn btn-outline-dark mt-3">TÌM HIỂU THÊM</a>
+          </div>
+
+          <div class="col-lg-6 reveal-right">
+            <div class="why-image-wrapper">
+              <div class="why-deco-block"></div>
+              <img src="../../assets/french_dining_experience.png" alt="Trải nghiệm ẩm thực sang trọng" class="why-img"
+                loading="lazy">
+              <button class="why-next-btn" aria-label="Ảnh tiếp theo">
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+       PHẦN 7: ĐÁNH GIÁ — Ý kiến khách hàng
+       ========================================== -->
+    <section id="sec-07" class="section-testimonials">
+      <div class="container">
+        <div class="testimonials-carousel" id="testimonialsCarousel">
+
+          <div class="testimonial-icon"><i class="bi bi-quote"></i></div>
+
+          <!-- Đánh giá 1 -->
+          <div class="testimonial-slide active" data-slide="0">
+            <h3 class="testimonial-title">Trải Nghiệm Ẩm Thực Khó Quên</h3>
+            <p class="testimonial-text">
+              "Ngay khi bước vào, tôi biết đây sẽ là một buổi tối đặc biệt.
+              Mỗi món ăn đều là một kiệt tác, dịch vụ hoàn hảo từ đầu đến cuối."
+            </p>
+            <div class="testimonial-stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testimonial-author">NGỌC ANH — <span>NHÀ PHÊ BÌNH ẨM THỰC</span></p>
+          </div>
+
+          <!-- Đánh giá 2 -->
+          <div class="testimonial-slide" data-slide="1">
+            <h3 class="testimonial-title">Nghệ Thuật Ẩm Thực Đỉnh Cao</h3>
+            <p class="testimonial-text">
+              "BASILICO đã thay đổi hoàn toàn cách tôi nhìn nhận về ẩm thực cao cấp.
+              Thực đơn theo mùa là một hành trình hương vị tuyệt vời."
+            </p>
+            <div class="testimonial-stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testimonial-author">MINH TUẤN — <span>BLOGGER ẨM THỰC</span></p>
+          </div>
+
+          <!-- Đánh giá 3 -->
+          <div class="testimonial-slide" data-slide="2">
+            <h3 class="testimonial-title">Một Buổi Tối Hoàn Hảo</h3>
+            <p class="testimonial-text">
+              "Từ không gian đến cách phối rượu vang tuyệt vời, mọi thứ đều hoàn hảo.
+              Món Tôm Hùm xứng đáng nhận được cả tràng pháo tay."
+            </p>
+            <div class="testimonial-stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+            </div>
+            <p class="testimonial-author">THANH &amp; HÀ — <span>KHÁCH HÀNG THÂN THIẾT</span></p>
+          </div>
+
+          <!-- Chấm điều hướng -->
+          <div class="testimonial-dots" role="tablist">
+            <button class="dot active" data-dot="0" role="tab" aria-label="Đánh giá 1" aria-selected="true"></button>
+            <button class="dot" data-dot="1" role="tab" aria-label="Đánh giá 2" aria-selected="false"></button>
+            <button class="dot" data-dot="2" role="tab" aria-label="Đánh giá 3" aria-selected="false"></button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+       PHẦN 8: ĐẶT HÀNG & VOUCHER QUÀ TẶNG
+       ========================================== -->
+    <section id="sec-08" class="section-order">
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+
+          <!-- Đặt hàng trực tuyến -->
+          <div class="col-md-6 reveal-left">
+            <div class="order-card card-hover-lift">
+              <img src="../../assets/french_beef_steak.png" alt="Bò bít tết cao cấp" class="order-card-img"
+                loading="lazy">
+              <div class="order-card-body">
+                <h3><i class="bi bi-bag-check"></i> Đặt Hàng Online</h3>
+                <p>Thưởng thức ẩm thực đạt giải thưởng ngay tại nhà. Tươi ngon, nhanh chóng và giao hàng tận nơi.</p>
+                <a href="../ThucDon/index.html" class="btn btn-outline-gold">ĐẶT NGAY</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Voucher quà tặng -->
+          <div class="col-md-6 reveal-right">
+            <div class="order-card order-card-gift card-hover-lift">
+              <div class="order-card-body">
+                <div class="gift-icon"><i class="bi bi-gift"></i></div>
+                <h3>Voucher Quà Tặng</h3>
+                <p>Món quà hoàn hảo dành cho người yêu ẩm thực. Chọn voucher cao cấp và gây bất ngờ cho người thân.</p>
+                <a href="../LienHe/index.html" class="btn btn-outline-gold">MUA NGAY</a>
+              </div>
+              <img src="../../assets/french_dessert_souffle.png" alt="Bánh soufflé sô-cô-la" class="order-card-img"
+                loading="lazy">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+       PHẦN 9: ĐẦU BẾP — Đội ngũ
+       ========================================== -->
+    <section id="sec-09" class="section-chef">
+      <div class="container">
+        <div class="row align-items-center g-4">
+
+          <div class="col-lg-4 reveal-left">
+            <img src="../../assets/french_chef_cooking.png" alt="Bếp trưởng đang chế biến món ăn"
+              class="chef-img chef-img-large" loading="lazy">
+          </div>
+
+          <div class="col-lg-3 reveal-up">
+            <img src="../../assets/french_tuna_tataki.png" alt="Đầu bếp thái cá ngừ tataki"
+              class="chef-img chef-img-small" loading="lazy">
+          </div>
+
+          <div class="col-lg-5 reveal-right">
+            <span class="eyebrow">ĐẦU BẾP CỦA CHÚNG TÔI</span>
+            <h2 data-text-reveal>Bí Quyết Đằng Sau Món Ăn Ngon</h2>
+            <p>
+              Đội ngũ đầu bếp đẳng cấp thế giới của chúng tôi mang đến hàng thập kỷ
+              kinh nghiệm từ các nhà hàng đạt sao Michelin khắp châu Âu. Dẫn dắt bởi
+              Bếp Trưởng Pierre Laurent, mỗi món ăn đều được chế biến với sự chính xác
+              và cam kết về sự xuất sắc.
+            </p>
+            <a href="../GioiThieu/index.html#team" class="btn btn-outline-dark">XEM TẤT CẢ ĐẦU BẾP</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+       PHẦN 9B: SỐ LIỆU — Thống kê nổi bật
+       ========================================== -->
+    <section id="sec-09b" class="section-stats">
+      <div class="stats-bg">
+        <img src="../../assets/french_restaurant_hero.png" alt="" loading="lazy">
+      </div>
+      <div class="stats-overlay"></div>
+      <div class="container position-relative">
+        <div class="row g-4 text-center stagger-grid">
+          <div class="col-6 col-lg-3">
+            <div class="stat-item">
+              <span class="stat-number" data-target="15">0</span>
+              <span class="stat-label">Năm Kinh Nghiệm</span>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="stat-item">
+              <span class="stat-number" data-target="120" data-suffix="+">0</span>
+              <span class="stat-label">Món Trong Thực Đơn</span>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="stat-item">
+              <span class="stat-number" data-target="30" data-suffix="K">0</span>
+              <span class="stat-label">Khách Hàng Hài Lòng</span>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="stat-item">
+              <span class="stat-number" data-target="18">0</span>
+              <span class="stat-label">Giải Thưởng</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+       PHẦN 10: ĐẶT BÀN — Form đặt chỗ
+       ========================================== -->
+    <section id="sec-10" class="section-reservation">
+      <div class="reservation-bg">
+        <img src="../../assets/french_restaurant_hero.png" alt="" loading="lazy">
+      </div>
+      <div class="reservation-overlay"></div>
+
+      <div class="container position-relative">
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-5 text-white reveal-left">
+            <span class="eyebrow eyebrow-gold">ĐẶT BÀN TRỰC TUYẾN</span>
+            <h2 class="text-white" data-text-reveal>Đặt Bàn Ngay</h2>
+            <p style="color: rgba(255,255,255,0.8);">Đặt bàn chỉ với vài thao tác. Chúng tôi sẽ xác nhận trong vòng 30 phút qua điện thoại hoặc SMS.</p>
+          </div>
+
+          <div class="col-lg-7 reveal-right">
+            <form class="reservation-form" id="reservationForm" novalidate>
+
+              <div class="reservation-form-header">
+                <h3>Thông Tin Đặt Bàn</h3>
+                <p>Điền thông tin bên dưới, chúng tôi sẽ xác nhận qua điện thoại.</p>
+              </div>
+
+              <div class="mb-3">
+                <label for="rsv-name" class="form-label-light">Họ và tên <span class="required">*</span></label>
+                <input type="text" class="form-control" id="rsv-name" placeholder="Nguyễn Văn A" required minlength="2"
+                  autocomplete="name">
+                <div class="invalid-feedback" role="alert"></div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-sm-6">
+                  <label for="rsv-phone" class="form-label-light">Số điện thoại <span class="required">*</span></label>
+                  <input type="tel" class="form-control" id="rsv-phone" placeholder="0901 234 567" required
+                    pattern="[0-9]{10,11}" autocomplete="tel">
+                  <div class="invalid-feedback" role="alert"></div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="rsv-time" class="form-label-light">Giờ đến <span class="required">*</span></label>
+                  <input type="time" class="form-control" id="rsv-time" required>
+                  <div class="invalid-feedback" role="alert"></div>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-sm-6">
+                  <label for="rsv-guests" class="form-label-light">Số khách <span class="required">*</span></label>
+                  <select class="form-select" id="rsv-guests" required>
+                    <option value="" disabled selected>Chọn số lượng</option>
+                    <option value="1">1 người</option>
+                    <option value="2">2 người</option>
+                    <option value="3">3 người</option>
+                    <option value="4">4 người</option>
+                    <option value="5">5 người</option>
+                    <option value="6">6+ người</option>
+                  </select>
+                  <div class="invalid-feedback" role="alert"></div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="rsv-date" class="form-label-light">Ngày đặt <span class="required">*</span></label>
+                  <input type="date" class="form-control" id="rsv-date" required>
+                  <div class="invalid-feedback" role="alert"></div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-submit-reservation w-100" id="rsv-submit">
+                <i class="bi bi-calendar-check"></i> ĐẶT BÀN NGAY
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+       PHẦN 11: TIN TỨC — Bài viết blog
+       ========================================== -->
+    <section id="sec-11" class="section-blog">
+      <div class="container">
+
+        <div class="text-center mb-5 reveal-up">
+          <span class="eyebrow">TIN MỚI NHẤT</span>
+          <h2>Có Gì Mới Tại <em>Blog Của Chúng Tôi?</em></h2>
+          <p class="mx-auto section-subtitle">
+            Cập nhật những câu chuyện mới nhất — từ công thức theo mùa đến hướng dẫn phối rượu vang chuyên nghiệp.
+          </p>
+        </div>
+
+        <div class="row g-4">
+
+          <!-- Bài viết 1 -->
+          <div class="col-md-6 col-lg-4 reveal-up">
+            <article class="blog-card">
+              <div class="blog-card-img-wrapper">
+                <div class="blog-date-badge">
+                  <span class="day">25</span><span class="month">Th6 23</span>
+                </div>
+                <img src="../../assets/french_lobster.png" alt="Chế biến Tôm Hùm Thermidor" loading="lazy">
+              </div>
+              <div class="blog-card-body">
+                <div class="blog-meta">
+                  <span>BỞI JOHN MATTER</span>
+                  <span class="blog-tags">NHÀ HÀNG, ẨM THỰC</span>
+                </div>
+                <h3>Nghệ Thuật Hải Sản Pháp: Từ Biển Đến Bàn Ăn</h3>
+                <p>Khám phá cách đầu bếp biến hải sản tươi sống thành những kiệt tác ẩm thực Pháp...</p>
+                <a href="../Blog/index.html" class="blog-read-more">ĐỌC THÊM <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Bài viết 2 -->
+          <div class="col-md-6 col-lg-4 reveal-up" style="--reveal-delay: 100ms">
+            <article class="blog-card">
+              <div class="blog-card-img-wrapper">
+                <div class="blog-date-badge">
+                  <span class="day">18</span><span class="month">Th6 23</span>
+                </div>
+                <img src="../../assets/french_truffle_risotto.png" alt="Cơm nấm truffle" loading="lazy">
+              </div>
+              <div class="blog-card-body">
+                <div class="blog-meta">
+                  <span>BỞI BẾP TRƯỞNG PIERRE</span>
+                  <span class="blog-tags">CÔNG THỨC, THEO MÙA</span>
+                </div>
+                <h3>Nấm Truffle Theo Mùa: Hành Trình Qua Vùng Périgord</h3>
+                <p>Theo chân bếp trưởng đến những cánh rừng nấm truffle ở Tây Nam nước Pháp...</p>
+                <a href="../Blog/index.html" class="blog-read-more">ĐỌC THÊM <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Bài viết 3 -->
+          <div class="col-md-6 col-lg-4 reveal-up" style="--reveal-delay: 200ms">
+            <article class="blog-card">
+              <div class="blog-card-img-wrapper">
+                <div class="blog-date-badge">
+                  <span class="day">10</span><span class="month">Th6 23</span>
+                </div>
+                <img src="../../assets/french_duck_confit.png" alt="Vịt confit với khoai tây" loading="lazy">
+              </div>
+              <div class="blog-card-body">
+                <div class="blog-meta">
+                  <span>BỞI ANNA CLAIRE</span>
+                  <span class="blog-tags">RƯỢU VANG, PHỐI MÓN</span>
+                </div>
+                <h3>Phối Rượu Vang 101: Sự Kết Hợp Hoàn Hảo Cho Mỗi Món</h3>
+                <p>Chuyên gia rượu vang tiết lộ bí quyết phối rượu với ẩm thực Pháp...</p>
+                <a href="../Blog/index.html" class="blog-read-more">ĐỌC THÊM <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+       PHẦN 12: BỘ SƯU TẬP — Ảnh món ăn nổi bật
+       ========================================== -->
+    <section id="sec-12" class="section-gallery">
+      <div class="gallery-grid">
+
+        <!-- Ảnh 1: Cá hồi -->
+        <div class="gallery-panel">
+          <img src="../../assets/french_salmon.png" alt="Cá hồi nướng" loading="lazy">
+          <div class="gallery-info">
+            <span class="gallery-info-cat">Hải Sản — Đặc Trưng</span>
+            <h3 class="gallery-info-title">Cá Hồi Nướng<br>&amp; Bơ Thảo Mộc</h3>
+            <p class="gallery-info-desc">Cá hồi Đại Tây Dương nướng chậm với bơ thảo mộc Normandy và rau vườn.</p>
+            <span class="gallery-info-arrow"><i class="bi bi-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Ảnh 2: Bò Wagyu -->
+        <div class="gallery-panel">
+          <img src="../../assets/french_beef_steak.png" alt="Bò Wagyu bít tết" loading="lazy">
+          <div class="gallery-info">
+            <span class="gallery-info-cat">Thịt — Cao Cấp</span>
+            <h3 class="gallery-info-title">Bò Wagyu<br>&amp; Nước Sốt Truffle</h3>
+            <p class="gallery-info-desc">Bò Wagyu A5 áp chảo với nước sốt nấm truffle đen, khoai tây nghiền mịn.</p>
+            <span class="gallery-info-arrow"><i class="bi bi-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Ảnh 3: Vịt Confit -->
+        <div class="gallery-panel">
+          <img src="../../assets/french_duck_confit.png" alt="Vịt confit" loading="lazy">
+          <div class="gallery-info">
+            <span class="gallery-info-cat">Gia Cầm — Cổ Điển</span>
+            <h3 class="gallery-info-title">Vịt Confit</h3>
+            <p class="gallery-info-desc">Đùi vịt nấu chậm, da giòn rụm, khoai tây kiểu Sarladaise và sốt sung.</p>
+            <span class="gallery-info-arrow"><i class="bi bi-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Ảnh 4: Bạch tuộc -->
+        <div class="gallery-panel">
+          <img src="../../assets/french_octopus_dish.png" alt="Bạch tuộc với thì là" loading="lazy">
+          <div class="gallery-info">
+            <span class="gallery-info-cat">Hải Sản — Đầu Bếp Chọn</span>
+            <h3 class="gallery-info-title">Bạch Tuộc Mềm<br>&amp; Thì Là</h3>
+            <p class="gallery-info-desc">Bạch tuộc hầm chậm với thì là bào mỏng, sốt chanh và thảo mộc Provence.</p>
+            <span class="gallery-info-arrow"><i class="bi bi-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Ảnh 5: Hầm Rượu -->
+        <div class="gallery-panel">
+          <img src="../../assets/french_wine_cellar.png" alt="Hầm rượu vang" loading="lazy">
+          <div class="gallery-info">
+            <span class="gallery-info-cat">Không Gian — Hầm Rượu</span>
+            <h3 class="gallery-info-title">Hầm Rượu Vang<br>&amp; Thưởng Thức</h3>
+            <p class="gallery-info-desc">Bộ sưu tập hơn 500 nhãn rượu vang chọn lọc từ Pháp, Ý và Tây Ban Nha.</p>
+            <span class="gallery-info-arrow"><i class="bi bi-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Ảnh 6: Hải Sản Tổng Hợp -->
+        <div class="gallery-panel">
+          <img src="../../assets/french_seafood_platter.png" alt="Đĩa hải sản tổng hợp" loading="lazy">
+          <div class="gallery-info">
+            <span class="gallery-info-cat">Hải Sản — Signature</span>
+            <h3 class="gallery-info-title">Đĩa Hải Sản<br>&amp; Premium</h3>
+            <p class="gallery-info-desc">Tôm hùm, hàu, cua và tôm tươi sống phục vụ trên đá xay kèm chanh và thảo mộc.</p>
+            <span class="gallery-info-arrow"><i class="bi bi-arrow-right"></i></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+       PHẦN 13: VỊ TRÍ — Cách tìm chúng tôi
+       ========================================== -->
+    <section id="sec-13" class="section-location">
+      <div class="container">
+
+        <div class="text-center mb-5 reveal-up">
+          <span class="eyebrow">VỊ TRÍ</span>
+          <h2>Cách Tìm <em>Chúng Tôi?</em></h2>
+          <p class="mx-auto section-subtitle">
+            Nhà hàng nằm tại trung tâm thành phố. Hãy đến để có một trải nghiệm ẩm thực khó quên.
+          </p>
+        </div>
+
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-4 text-center reveal-left">
+            <img src="../../assets/french_dessert_souffle.png" alt="Bánh soufflé sô-cô-la đặc trưng"
+              class="location-deco-img" loading="lazy">
+          </div>
+
+          <div class="col-lg-4 reveal-up">
+            <div class="location-info">
+              <p class="location-label"><i class="bi bi-telephone"></i> GỌI CHO CHÚNG TÔI:</p>
+              <a href="tel:0901234567" class="location-phone">090-123-4567</a>
+              <hr>
+              <p class="location-label"><i class="bi bi-info-circle"></i> THÔNG TIN NHÀ HÀNG:</p>
+              <p class="location-address">123 Đường Nguyễn Huệ, Quận 1,<br>TP. Hồ Chí Minh</p>
+              <p>
+                <a href="mailto:Basilicofood123@gmail.com" class="location-email">
+                  <i class="bi bi-envelope"></i> Basilicofood123@gmail.com
+                </a>
+              </p>
+              <p class="location-hours">T2–T6: 08:00–22:00 | T7: 10:00–23:00</p>
+              <a href="https://maps.google.com/?q=123+Nguyen+Hue+Quan+1+HCMC" target="_blank" rel="noopener noreferrer"
+                class="btn btn-outline-dark mt-3">
+                <i class="bi bi-geo-alt"></i> CHỈ ĐƯỜNG
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 reveal-right">
+            <div class="location-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5177580567037!2d106.70132!3d10.77394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f4670702e31%3A0xa5777fb3853960e!2zMTIzIE5ndXnhu4VuIEh14buHLCBC4bq_biBOZ2jDqSwgUXXhuq1uIDEsIFRQLiBIQ00!5e0!3m2!1svi!2svn!4v1"
+                width="100%" height="350" style="border:0" allowfullscreen loading="lazy"
+                title="Vị trí nhà hàng BASILICO trên bản đồ"></iframe>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ==========================================
+       PHẦN 14: FOOTER — Chân trang
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Cột 1: Thương hiệu -->
+        <div class="col-lg-3 col-md-6">
+          <a href="../TrangChu/index.html" class="footer-logo">BASILICO</a>
+          <p class="footer-tagline">Nhà Hàng . Bar . Cà Phê . Bistro</p>
+          <p class="footer-desc">
+            Trải nghiệm ẩm thực Pháp tinh tế trong không gian ấm cúng và sang trọng từ năm 2010.
+          </p>
+          <div class="footer-social">
+            <a href="https://facebook.com/basilico" target="_blank" rel="noopener" class="social-icon"
+              aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://instagram.com/basilico" target="_blank" rel="noopener" class="social-icon"
+              aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="mailto:Basilicofood123@gmail.com" class="social-icon" aria-label="Email"><i
+                class="bi bi-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Cột 2: Giờ mở cửa -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-heading">GIỜ MỞ CỬA</h5>
+          <ul class="footer-list">
+            <li>T2 – T6: <span>08:00 – 22:00</span></li>
+            <li>Thứ Bảy: <span>10:00 – 23:00</span></li>
+            <li>Chủ Nhật: <span>10:00 – 21:00</span></li>
+            <li class="footer-happy-hour"><i class="bi bi-star-fill"></i> Giờ Vàng: T6 17:00–19:00</li>
+          </ul>
+        </div>
+
+        <!-- Cột 3: Vị trí -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-heading">ĐỊA CHỈ</h5>
+          <p class="footer-address">123 Đường Nguyễn Huệ,<br>Quận 1, TP. Hồ Chí Minh</p>
+          <p><a href="mailto:Basilicofood123@gmail.com" class="footer-link"><i class="bi bi-envelope"></i>
+              Basilicofood123@gmail.com</a></p>
+          <p><a href="tel:0901234567" class="footer-phone"><i class="bi bi-telephone"></i> 090-123-4567</a></p>
+        </div>
+
+        <!-- Cột 4: Liên kết nhanh -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-heading">LIÊN KẾT NHANH</h5>
+          <ul class="footer-list">
+            <li><a href="../TrangChu/index.html" class="footer-link">Trang Chủ</a></li>
+            <li><a href="../ThucDon/index.html" class="footer-link">Thực Đơn</a></li>
+            <li><a href="../GioiThieu/index.html" class="footer-link">Giới Thiệu</a></li>
+            <li><a href="../DatBan/index.html" class="footer-link">Đặt Bàn</a></li>
+            <li><a href="../Blog/index.html" class="footer-link">Tin Tức</a></li>
+            <li><a href="../LienHe/index.html" class="footer-link">Liên Hệ</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Cuối footer -->
+    <div class="footer-bottom">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center">
+        <p>&copy; 2026 BASILICO. Bảo lưu mọi quyền.</p>
+        <div class="footer-legal">
+          <a href="../BaoMat/index.html">BẢO MẬT</a>
+          <a href="../DieuKhoan/index.html">ĐIỀU KHOẢN</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ==========================================
+       NÚT CUỘN LÊN ĐẦU TRANG & THÔNG BÁO
+       ========================================== -->
+  <button class="fab-scroll-top" id="fab-scroll-top" aria-label="Cuộn lên đầu trang">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

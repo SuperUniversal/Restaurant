@@ -1,0 +1,1348 @@
+/* ================================================================
+   BASILICO — CSS Trang Chủ (style.css)
+   Phân chia rõ ràng theo từng phần (section)
+   ================================================================ */
+
+
+/* ================================================================
+   PHẦN 2: HERO — Ảnh nền toàn màn hình
+   ================================================================ */
+
+/* Bố cục chính */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Ảnh nền hero */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+/* Lớp phủ tối gradient */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.65), rgba(26, 26, 46, 0.35));
+  z-index: 1;
+}
+
+/* Nội dung hero */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-height: 80vh;
+  padding-bottom: 60px;
+}
+
+/* Văn bản chính */
+.hero-text {
+  max-width: 650px;
+}
+.hero-text h1 {
+  font-size: clamp(36px, 6vw, 64px);
+  color: #fff;
+  margin-bottom: 20px;
+}
+.hero-text p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 32px;
+  line-height: 1.8;
+}
+
+/* Nhóm nút CTA */
+.hero-cta-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Số điện thoại */
+.hero-phone {
+  text-align: right;
+}
+.phone-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold);
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  transition: all var(--transition-fast);
+}
+.phone-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.phone-link i {
+  font-size: 16px;
+}
+.hero-phone small {
+  display: block;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Hiệu ứng chữ lấp lánh (shimmer) */
+.hero-text h1 em {
+  position: relative;
+  background: linear-gradient(120deg, var(--gold), var(--gold-light) 40%, #fff 50%, var(--gold-light) 60%, var(--gold));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 3s linear infinite;
+}
+@keyframes textShimmer {
+  to { background-position: -200% center; }
+}
+
+
+
+
+/* Hạt sáng bay (particles) */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(201, 169, 110, 0.4);
+  border-radius: 50%;
+  animation: particleFloat linear infinite;
+}
+.particle:nth-child(odd) {
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.25);
+}
+.particle:nth-child(3n) {
+  width: 5px;
+  height: 5px;
+  background: rgba(201, 169, 110, 0.2);
+}
+@keyframes particleFloat {
+  0%   { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10%, 90% { opacity: 1; }
+  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+/* Responsive hero cho mobile */
+@media (max-width: 767.98px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
+  .hero-text h1 br { display: none; }
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-cta-group .btn { width: 100%; }
+  .hero-phone { display: none; }
+}
+
+
+/* ================================================================
+   PHẦN 3: GIỚI THIỆU — Về nhà hàng
+   ================================================================ */
+.section-about {
+  background: var(--bg-warm);
+  padding: var(--section-py) 0;
+}
+
+/* Khung ảnh với khối trang trí */
+.about-image-wrapper {
+  position: relative;
+}
+.about-deco-block {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: var(--gold-light);
+  border-radius: var(--radius-md);
+  bottom: -20px;
+  left: -20px;
+  z-index: 0;
+}
+.about-img {
+  position: relative;
+  z-index: 1;
+  border-radius: var(--radius-md);
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 4/5;
+  cursor: pointer;
+  transition: transform var(--transition-base);
+}
+.about-img:hover {
+  transform: scale(1.03);
+}
+
+/* Tiêu đề & văn bản */
+.section-about h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 20px;
+}
+.section-about p {
+  margin-bottom: 16px;
+  color: var(--text-body);
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .section-about { padding: var(--section-py-md) 0; }
+}
+@media (max-width: 575.98px) {
+  .section-about { padding: var(--section-py-sm) 0; }
+  .about-deco-block { display: none; }
+}
+
+
+/* ================================================================
+   PHẦN 4: GIỜ MỞ CỬA — Thời gian phục vụ
+   ================================================================ */
+.section-hours {
+  background: #fff;
+  padding: var(--section-py) 0;
+}
+.section-hours h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 28px;
+}
+
+/* Hàng hiển thị giờ */
+.hours-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 15px;
+  color: var(--text-body);
+}
+.hours-dots {
+  flex: 1;
+  border-bottom: 1px dashed var(--text-light);
+  margin: 0 4px;
+  min-width: 20px;
+}
+.hours-closed span:last-child {
+  color: var(--warning);
+  font-weight: 600;
+}
+
+/* Tiêu đề phụ (Bữa sáng, Trưa & Tối) */
+.hours-subtitle {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-heading);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hours-subtitle i {
+  color: var(--gold);
+}
+
+/* Ảnh minh họa */
+.hours-img {
+  border-radius: var(--radius-md);
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 4/5;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .section-hours { padding: var(--section-py-md) 0; }
+}
+
+
+/* ================================================================
+   PHẦN 5: THỰC ĐƠN — Tabs chuyển món ăn
+   ================================================================ */
+.section-menu {
+  background: var(--bg-dark);
+  padding: var(--section-py) 0;
+}
+
+/* Thanh tab */
+.menu-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+.menu-tab {
+  background: none;
+  border: none;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 12px 24px;
+  cursor: pointer;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+.menu-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width var(--transition-base);
+}
+.menu-tab.active {
+  color: var(--gold);
+  font-weight: 700;
+}
+.menu-tab.active::after {
+  width: 60%;
+}
+.menu-tab:hover {
+  color: var(--gold);
+}
+
+/* Bố cục nội dung thực đơn */
+.menu-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.menu-deco-left,
+.menu-deco-right {
+  flex: 0 0 160px;
+}
+.menu-deco-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--gold);
+}
+
+/* Danh sách món ăn */
+.menu-list {
+  flex: 1;
+  min-height: 320px;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.menu-item {
+  display: flex;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  opacity: 0;
+  transform: translateY(15px);
+  animation: menuItemReveal 0.4s ease forwards;
+}
+.menu-item:nth-child(1) { animation-delay: 0.05s; }
+.menu-item:nth-child(2) { animation-delay: 0.10s; }
+.menu-item:nth-child(3) { animation-delay: 0.15s; }
+.menu-item:nth-child(4) { animation-delay: 0.20s; }
+.menu-item:nth-child(5) { animation-delay: 0.25s; }
+.menu-item:nth-child(6) { animation-delay: 0.30s; }
+@keyframes menuItemReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+.menu-item:hover {
+  padding-left: 8px;
+}
+.menu-item:hover .menu-item-name {
+  color: var(--gold);
+}
+
+/* Tên món & giá */
+.menu-item-name {
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+.menu-item-dots {
+  flex: 1;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+  margin: 0 12px;
+  min-width: 20px;
+}
+.menu-item-price {
+  color: var(--gold);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+/* Responsive menu */
+@media (max-width: 767.98px) {
+  .menu-deco-left,
+  .menu-deco-right { display: none; }
+  .menu-content-wrapper { padding: 0 16px; }
+}
+
+
+/* ================================================================
+   PHẦN 6: TẠI SAO CHỌN CHÚNG TÔI
+   ================================================================ */
+.section-why {
+  background: var(--bg-cream);
+  padding: var(--section-py) 0;
+}
+.section-why h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 24px;
+}
+
+/* Thanh tab */
+.why-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.why-tab {
+  background: none;
+  border: none;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+.why-tab.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+  font-weight: 600;
+}
+.why-tab:hover {
+  color: var(--gold-dark);
+}
+
+/* Nội dung tab */
+.why-content {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.why-content p {
+  margin-bottom: 16px;
+}
+.why-content ul {
+  list-style: none;
+  padding: 0;
+}
+.why-content li {
+  padding: 6px 0 6px 20px;
+  position: relative;
+}
+.why-content li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* Ảnh minh họa */
+.why-image-wrapper {
+  position: relative;
+}
+.why-deco-block {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: var(--gold-light);
+  border-radius: var(--radius-md);
+  top: -20px;
+  right: -20px;
+  z-index: 0;
+}
+.why-img {
+  position: relative;
+  z-index: 1;
+  border-radius: var(--radius-md);
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 4/5;
+}
+.why-next-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 20px;
+}
+.why-next-btn:hover {
+  background: var(--gold-dark);
+  transform: scale(1.1);
+}
+
+
+/* ================================================================
+   PHẦN 7: ĐÁNH GIÁ — Ý kiến khách hàng (Carousel)
+   ================================================================ */
+.section-testimonials {
+  background: var(--bg-dark);
+  padding: var(--section-py) 0;
+}
+.testimonials-carousel {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  padding: 40px 0;
+}
+
+/* Icon dấu ngoặc kép */
+.testimonial-icon i {
+  font-size: 48px;
+  color: var(--gold);
+  opacity: 0.3;
+  display: block;
+  margin-bottom: 24px;
+}
+
+/* Slide đánh giá */
+.testimonial-slide {
+  display: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(10px) scale(0.98);
+}
+.testimonial-slide.active {
+  display: block;
+  transform: translateY(0) scale(1);
+}
+
+/* Nội dung đánh giá */
+.testimonial-title {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.testimonial-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.testimonial-stars {
+  color: var(--gold);
+  font-size: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+.testimonial-author {
+  color: var(--gold);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.testimonial-author span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Chấm điều hướng carousel */
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 32px;
+}
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
+  position: relative;
+}
+.dot::before {
+  content: '';
+  position: absolute;
+  inset: -16px;
+}
+.dot.active {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.dot:hover {
+  border-color: var(--gold);
+}
+
+
+/* ================================================================
+   PHẦN 8: ĐẶT HÀNG & VOUCHER QUÀ TẶNG
+   ================================================================ */
+.section-order {
+  background: var(--bg-body);
+  padding: var(--section-py) 0;
+}
+
+/* Thẻ card */
+.order-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease;
+}
+.order-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.order-card-img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.order-card:hover .order-card-img {
+  transform: scale(1.04);
+}
+
+/* Nội dung card */
+.order-card-body {
+  padding: 28px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.order-card-body h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.order-card-body h3 i {
+  color: var(--gold);
+}
+.order-card-body p {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+/* Card voucher (nền tối) */
+.order-card-gift {
+  background: var(--bg-dark);
+  color: rgba(255, 255, 255, 0.8);
+}
+.order-card-gift h3 {
+  color: #fff;
+}
+.gift-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(201, 169, 110, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.gift-icon i {
+  font-size: 28px;
+  color: var(--gold);
+}
+
+/* Responsive */
+@media (max-width: 767.98px) {
+  .order-card-gift { flex-direction: column-reverse; }
+}
+
+
+/* ================================================================
+   PHẦN 9: ĐẦU BẾP — Đội ngũ
+   ================================================================ */
+.section-chef {
+  background: var(--bg-cream);
+  padding: var(--section-py) 0;
+}
+.section-chef h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 20px;
+}
+
+/* Ảnh đầu bếp */
+.chef-img {
+  border-radius: var(--radius-md);
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.chef-img:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-lg);
+}
+.chef-img-large { aspect-ratio: 3/4; }
+.chef-img-small { aspect-ratio: 1/1; }
+
+
+/* ================================================================
+   PHẦN 9B: SỐ LIỆU — Bộ đếm thống kê
+   ================================================================ */
+.section-stats {
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, #faf8f4 0%, #f5f0e8 50%, #faf8f4 100%);
+}
+
+/* Ảnh nền — ẩn để dùng nền cream */
+.stats-bg {
+  display: none;
+}
+.stats-overlay {
+  display: none;
+}
+
+/* Mỗi ô thống kê */
+.stat-item {
+  position: relative;
+  z-index: 2;
+  padding: 36px 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border: 1px solid rgba(201,169,110,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.stat-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+.stat-number {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.stat-label {
+  display: block;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.stat-item::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+  margin: 16px auto 0;
+  opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .section-stats { padding: 60px 0; }
+}
+@media (max-width: 575.98px) {
+  .section-stats { padding: 40px 0; }
+  .stat-number { font-size: 36px; }
+}
+
+
+/* ================================================================
+   PHẦN 10: ĐẶT BÀN — Form đặt chỗ
+   ================================================================ */
+.section-reservation {
+  position: relative;
+  padding: var(--section-py) 0;
+  overflow: hidden;
+}
+
+/* Ảnh nền — GIỮ LẠI, phủ sáng */
+.reservation-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.reservation-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.reservation-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.55), rgba(26, 26, 46, 0.35));
+  z-index: 1;
+}
+
+/* Tiêu đề — SÁNG, NỔI BẬT trên nền tối */
+.section-reservation h2 {
+  font-size: clamp(32px, 5vw, 48px);
+  color: #fff;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+.section-reservation .eyebrow {
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+}
+.section-reservation .col-lg-5 p {
+  color: rgba(255,255,255,0.95) !important;
+  font-size: 16px;
+  line-height: 1.7;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+
+/* Form đặt bàn — PRO MAX: NỔI BẬT, CONTRAST CAO */
+.reservation-form {
+  background: #fff;
+  border: 2px solid rgba(201,169,110,0.35);
+  border-radius: 16px;
+  padding: 44px 40px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 20px 70px rgba(0,0,0,0.3), 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* Form header — Tiêu đề ĐẬMNÉT */
+.reservation-form-header {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--gold);
+}
+.reservation-form-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: #0F172A;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.reservation-form-header p {
+  font-size: 14px;
+  color: #475569;
+  margin: 0;
+}
+
+/* Labels — ĐẬM, RÕ (ui-ux-pro-max: contrast ≥ 4.5:1) */
+.form-label-light {
+  display: block;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #1A1A2E;
+  margin-bottom: 8px;
+}
+.form-label-light .required {
+  color: #DC2626;
+  margin-left: 3px;
+  font-weight: 700;
+}
+
+/* Input & select — VIỀN ĐẬM, NỀN TRẮNG, CHỮ ĐEN */
+.reservation-form .form-control,
+.reservation-form .form-select {
+  background: #fff;
+  border: 2px solid #c4c4c4;
+  color: #0F172A;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  min-height: 48px;
+}
+.reservation-form .form-control::placeholder {
+  color: #94A3B8;
+  font-weight: 400;
+}
+.reservation-form .form-select {
+  appearance: auto;
+  cursor: pointer;
+  color: #334155;
+}
+.reservation-form .form-select option {
+  background: #fff;
+  color: #0F172A;
+}
+.reservation-form .form-control:focus,
+.reservation-form .form-select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(201, 169, 110, 0.2);
+  background: #fff;
+}
+
+/* Nút gửi — GOLD NỔI BẬT, DỄ NHẬN RA (Pro Max CTA) */
+.btn-submit-reservation {
+  background: var(--gold) !important;
+  border: none !important;
+  color: #fff !important;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(201, 169, 110, 0.35);
+}
+.btn-submit-reservation:hover {
+  background: var(--gold-dark) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(201, 169, 110, 0.5);
+}
+.btn-submit-reservation:active {
+  transform: translateY(0);
+}
+
+
+/* ================================================================
+   PHẦN 11: TIN TỨC — Bài viết blog
+   ================================================================ */
+.section-blog {
+  background: #fff;
+  padding: var(--section-py) 0;
+}
+
+/* Thẻ bài viết */
+.blog-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #eee;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease;
+}
+.blog-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Ảnh bài viết */
+.blog-card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+}
+.blog-card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.blog-card:hover .blog-card-img-wrapper img {
+  transform: scale(1.06);
+}
+
+/* Nhãn ngày tháng */
+.blog-date-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--gold);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  z-index: 2;
+}
+.blog-date-badge .day {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+.blog-date-badge .month {
+  display: block;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Nội dung bài viết */
+.blog-card-body {
+  padding: 20px 24px;
+}
+.blog-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.blog-tags {
+  color: var(--gold);
+}
+.blog-card-body h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.blog-card-body p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+/* Link đọc thêm */
+.blog-read-more {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-heading);
+}
+.blog-read-more:hover {
+  color: var(--gold);
+}
+.blog-read-more i {
+  transition: transform 0.3s ease;
+}
+.blog-card:hover .blog-read-more i {
+  transform: translateX(4px);
+}
+
+
+/* ================================================================
+   PHẦN 12: BỘ SƯU TẬP — Ảnh món ăn (Hover hiện thông tin)
+   ================================================================ */
+.section-gallery {
+  padding: 0;
+}
+
+/* Lưới ảnh 4 cột */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 280px);
+}
+
+/* Từng ô ảnh */
+.gallery-panel {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.gallery-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.6s ease;
+}
+.gallery-panel:hover img {
+  transform: scale(1.08);
+  filter: brightness(0.35);
+}
+
+/* Lớp thông tin (ẩn, hiện khi hover) */
+.gallery-info {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px 24px;
+  background: linear-gradient(0deg,
+    rgba(26, 26, 46, 0.92) 0%,
+    rgba(26, 26, 46, 0.5) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.gallery-panel:hover .gallery-info {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Animation trượt từ dưới lên cho từng phần tử */
+.gallery-info-cat,
+.gallery-info-title,
+.gallery-info-desc,
+.gallery-info-arrow {
+  transform: translateY(20px);
+  opacity: 0;
+}
+.gallery-panel:hover .gallery-info-cat,
+.gallery-panel:hover .gallery-info-title,
+.gallery-panel:hover .gallery-info-desc,
+.gallery-panel:hover .gallery-info-arrow {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Nhãn danh mục */
+.gallery-info-cat {
+  display: inline-block;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.10s;
+}
+
+/* Tên món ăn */
+.gallery-info-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin: 0 0 8px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.18s;
+}
+
+/* Mô tả ngắn */
+.gallery-info-desc {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0 0 12px;
+  max-width: 280px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.26s;
+}
+
+/* Mũi tên */
+.gallery-info-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.34s;
+}
+.gallery-info-arrow:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateX(4px);
+}
+
+/* Vị trí từng ô trong lưới */
+.gallery-panel:nth-child(1) { grid-column: 1; grid-row: 1 / span 2; }
+.gallery-panel:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; }
+.gallery-panel:nth-child(3) { grid-column: 3; grid-row: 1 / span 2; }
+.gallery-panel:nth-child(4) { grid-column: 4; grid-row: 1 / span 2; }
+
+/* Responsive gallery */
+@media (max-width: 991.98px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 300px 300px;
+  }
+  .gallery-panel:nth-child(n) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .gallery-info-title { font-size: 18px; }
+}
+@media (max-width: 575.98px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .gallery-panel { min-height: 280px; }
+}
+
+
+/* ================================================================
+   PHẦN 13: VỊ TRÍ — Cách tìm chúng tôi
+   ================================================================ */
+.section-location {
+  background: var(--bg-body);
+  padding: var(--section-py) 0;
+}
+.section-location h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 16px;
+}
+
+/* Ảnh trang trí hình tròn */
+.location-deco-img {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--gold-light);
+  margin: 0 auto;
+}
+
+/* Khối thông tin */
+.location-info {
+  text-align: center;
+}
+.location-label {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.location-label i {
+  color: var(--gold);
+  margin-right: 4px;
+}
+.location-phone {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 20px;
+}
+.location-phone:hover {
+  color: var(--gold-dark);
+}
+.location-address {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.location-email {
+  color: var(--gold);
+}
+.location-email:hover {
+  text-decoration: underline;
+}
+.location-hours {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* Bản đồ */
+.location-map {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.location-map iframe {
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .location-deco-img { width: 200px; height: 200px; }
+}
+@media (max-width: 575.98px) {
+  .location-deco-img { display: none; }
+}
+
+
+/* ================================================================
+   NÚT CUỘN LÊN ĐẦU TRANG (FAB) — Hiệu ứng đặc biệt
+   ================================================================ */
+.fab-scroll-top.visible {
+  animation: fabBounceIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes fabBounceIn {
+  0%   { opacity: 0; transform: translateY(20px) scale(0.5); }
+  60%  { transform: translateY(-4px) scale(1.1); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.fab-scroll-top::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  opacity: 0;
+  animation: fabPulseRing 2s ease-out infinite;
+}
+@keyframes fabPulseRing {
+  0%   { opacity: 0.4; transform: scale(0.8); }
+  100% { opacity: 0; transform: scale(1.5); }
+}

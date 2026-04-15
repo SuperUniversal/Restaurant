@@ -1,0 +1,79 @@
+﻿/* ================================================================
+   BASILICO — CSS Trang Đặt Bàn (DatBan/css/style.css)
+   ================================================================ */
+
+
+
+
+/* PHẦN 2: FORM ĐẶT BÀN */
+.section-reservation-page{padding:var(--section-py) 0;background:var(--bg-body)}
+.section-reservation-page h2{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
+.section-reservation-page .section-subtitle{color:var(--text-muted);margin-bottom:32px;font-size:16px;line-height:1.7}
+
+/* Thẻ thông tin bên trái */
+.rsv-info-cards{display:flex;flex-direction:column;gap:16px}
+.rsv-info-card{display:flex;gap:16px;padding:20px;background:#fff;border-radius:var(--radius-md);border:1px solid #eee;transition:all var(--transition-fast)}
+.rsv-info-card:hover{border-color:var(--gold-light);box-shadow:var(--shadow-sm)}
+.rsv-info-card i{font-size:28px;color:var(--gold);flex-shrink:0;margin-top:2px}
+.rsv-info-card h4{font-size:16px;margin-bottom:4px;font-weight:600}
+.rsv-info-card p{font-size:14px;color:var(--text-muted);margin:0;line-height:1.5}
+.rsv-info-card a{color:var(--gold);font-weight:600}
+
+/* Wrapper form (nền kính mờ) */
+.rsv-form-wrapper{background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border:1px solid #e5e5e5;border-radius:var(--radius-lg);padding:36px;box-shadow:var(--shadow-md)}
+
+/* Labels */
+.rsv-form-wrapper .form-label{font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:13px;letter-spacing:.5px;color:var(--text-heading);margin-bottom:6px}
+
+/* Inputs */
+.rsv-form-wrapper .form-control,
+.rsv-form-wrapper .form-select{padding:12px 16px;border-radius:var(--radius-sm);border:1px solid #ddd;font-size:15px;transition:all var(--transition-fast)}
+.rsv-form-wrapper .form-control:focus,
+.rsv-form-wrapper .form-select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,.15)}
+
+/* Khu vực ngồi — Radio cards */
+.area-options{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.area-option input[type="radio"]{position:absolute;opacity:0;pointer-events:none}
+.area-card{padding:16px;border:2px solid #e5e5e5;border-radius:var(--radius-md);text-align:center;cursor:pointer;transition:all var(--transition-fast)}
+.area-card i{font-size:28px;color:var(--text-muted);display:block;margin-bottom:6px;transition:color var(--transition-fast)}
+.area-card span{display:block;font-weight:600;font-size:14px;margin-bottom:2px}
+.area-card small{font-size: 12px;color:var(--text-light)}
+.area-option input:checked+.area-card{border-color:var(--gold);background:var(--bg-warm)}
+.area-option input:checked+.area-card i{color:var(--gold)}
+.area-option input:focus-visible+.area-card{outline:2px solid var(--gold);outline-offset:2px}
+.area-card:hover{border-color:var(--gold-light)}
+
+/* PHẦN 3: CHÍNH SÁCH (Accordion) */
+.section-policy{padding:var(--section-py) 0;background:#fff}
+.section-policy h2{font-size:clamp(28px,4vw,42px);margin-bottom:32px}
+.section-policy .accordion{max-width:800px;margin:32px auto 0}
+.accordion-item{border:1px solid #eee;border-radius:var(--radius-md) !important;margin-bottom:12px;overflow:hidden}
+.accordion-button{font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:16px;padding:18px 24px;display:flex;align-items:center;gap:10px}
+.accordion-button i{color:var(--gold);font-size:20px}
+.accordion-button:not(.collapsed){color:var(--gold-dark);background:var(--bg-warm)}
+.accordion-button:focus{box-shadow:0 0 0 3px rgba(201,169,110,.15)}
+.accordion-body{padding:16px 24px;font-size:15px;line-height:1.7;color:var(--text-body)}
+.accordion-body a{color:var(--gold);font-weight:600}
+
+/* PHẦN 4: MODAL */
+.modal-content{border:none;border-radius:var(--radius-lg);overflow:hidden}
+.modal-header{background:var(--bg-warm);border-bottom:1px solid #eee;padding:20px 24px}
+.modal-title{font-family:'Playfair Display',serif;font-size:20px;display:flex;align-items:center;gap:8px}
+.modal-body{padding:24px}
+.confirm-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f0f0f0}
+.confirm-row:last-child{border-bottom:none}
+.confirm-label{font-weight:600;color:var(--text-heading);font-size:14px}
+.confirm-value{color:var(--text-body);font-size:14px}
+.modal-footer{padding:16px 24px;border-top:1px solid #eee}
+
+/* RESPONSIVE */
+@media(max-width:991.98px){
+  .section-reservation-page{padding:var(--section-py-md) 0}
+  .section-policy{padding:var(--section-py-md) 0}
+}
+@media(max-width:767.98px){
+  .area-options{grid-template-columns:1fr}
+  .rsv-form-wrapper{padding:24px 20px}
+}
+@media(max-width:575.98px){
+}

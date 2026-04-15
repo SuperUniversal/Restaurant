@@ -1,0 +1,88 @@
+﻿/* ================================================================
+   BASILICO — CSS Trang Giới Thiệu (GioiThieu/css/style.css)
+   ================================================================ */
+
+
+
+
+/* CÂU CHUYỆN THƯƠNG HIỆU */
+.section-story{padding:var(--section-py) 0;background:#fff}
+.section-story h2{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
+.story-lead{font-size:18px;line-height:1.8;color:var(--text-heading);font-weight:500;margin-bottom:16px}
+.section-story p{color:var(--text-muted);line-height:1.7;margin-bottom:20px}
+
+.story-img-wrapper{position:relative;border-radius:var(--radius-lg);overflow:hidden}
+.story-img-wrapper img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover}
+.story-badge{position:absolute;bottom:20px;right:20px;background:var(--gold);color:#fff;padding:12px 20px;border-radius:var(--radius-md);text-align:center}
+.story-badge-year{display:block;font-family:'Playfair Display',serif;font-size:32px;font-weight:700;line-height:1}
+.story-badge-text{font-size: 12px;letter-spacing:2px;text-transform:uppercase}
+
+/* Stats counter */
+.story-stats{display:flex;gap:32px;margin-top:28px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-number{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold)}
+.stat-suffix{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--gold)}
+.stat-label{display:block;font-size:13px;color:var(--text-muted);margin-top:4px}
+
+/* TẦM NHÌN & SỨ MỆNH */
+.section-vision{padding:var(--section-py) 0;background:var(--bg-cream)}
+.section-vision h2{font-size:clamp(28px,4vw,42px)}
+.vision-card{background:#fff;padding:32px 28px;border-radius:var(--radius-md);text-align:center;border:1px solid #eee;height:100%;transition:all .4s cubic-bezier(.16,1,.3,1)}
+.vision-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--gold-light)}
+.vision-icon{width:64px;height:64px;background:var(--bg-warm);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;color:var(--gold);transition:all var(--transition-fast)}
+.vision-card:hover .vision-icon{background:var(--gold);color:#fff}
+.vision-card h3{font-size:20px;margin-bottom:12px}
+.vision-card p{font-size:14px;color:var(--text-muted);line-height:1.6}
+
+/* ĐỘI NGŨ ĐẦU BẾP */
+.section-team{padding:var(--section-py) 0;background:#fff}
+.section-team h2{font-size:clamp(28px,4vw,42px)}
+.chef-card{background:#fff;border-radius:var(--radius-md);overflow:hidden;border:1px solid #eee;height:100%;transition:all .4s cubic-bezier(.16,1,.3,1)}
+.chef-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.chef-img{overflow:hidden;aspect-ratio:3/4}
+.chef-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.chef-card:hover .chef-img img{transform:scale(1.05)}
+.chef-body{padding:24px;text-align:center}
+.chef-body h3{font-size:20px;margin-bottom:4px}
+.chef-title{display:block;font-size:13px;color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.chef-body p{font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:16px}
+.chef-social{display:flex;justify-content:center;gap:8px}
+.chef-social a{width:36px;height:36px;border-radius:50%;border:1px solid #ddd;display:flex;align-items:center;justify-content:center;color:var(--text-muted);transition:all var(--transition-fast)}
+.chef-social a:hover{border-color:var(--gold);color:var(--gold);background:var(--bg-warm)}
+
+/* THÀNH TÍCH */
+.section-awards{position:relative;padding:100px 0;overflow:hidden}
+.section-awards-bg{position:absolute;inset:0}
+.section-awards-bg img{width:100%;height:100%;object-fit:cover}
+.section-awards-overlay{position:absolute;inset:0;background:rgba(26,26,46,.85)}
+.section-awards h2{margin-bottom:16px}
+.award-card{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-md);padding:32px 24px;text-align:center;color:#fff;height:100%;transition:all .4s ease}
+.award-card:hover{background:rgba(255,255,255,.15);transform:translateY(-6px)}
+.award-card i{font-size:36px;color:var(--gold);display:block;margin-bottom:16px}
+.award-card h4{font-size:16px;margin-bottom:8px}
+.award-card p{font-size:13px;color:rgba(255,255,255,.6)}
+
+/* KHÔNG GIAN — Gallery */
+.section-gallery-about{padding:var(--section-py) 0;background:var(--bg-body)}
+.section-gallery-about h2{font-size:clamp(28px,4vw,42px)}
+.about-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gallery-item{border-radius:var(--radius-md);overflow:hidden;cursor:pointer}
+.gallery-item img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.gallery-item:hover img{transform:scale(1.05)}
+
+/* CTA BANNER */
+.section-cta-banner{position:relative;padding:100px 0;overflow:hidden}
+.section-cta-bg{position:absolute;inset:0}.section-cta-bg img{width:100%;height:100%;object-fit:cover}
+.section-cta-overlay{position:absolute;inset:0;background:rgba(26,26,46,.8)}
+.section-cta-content{position:relative;z-index:2}
+.section-cta-content h2{font-size:clamp(28px,4vw,42px);color:#fff;margin-bottom:12px}
+.section-cta-content p{color:rgba(255,255,255,.7);margin-bottom:28px;font-size:16px}
+
+/* RESPONSIVE */
+@media(max-width:991.98px){.about-gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:767.98px){
+  .story-stats{gap:20px}.stat-number{font-size:28px}
+  .about-gallery{grid-template-columns:1fr 1fr;gap:12px}
+  .section-awards{padding:60px 0}
+}
+@media(max-width:575.98px){.about-gallery{grid-template-columns:1fr}}

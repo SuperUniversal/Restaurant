@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chi tiết món ăn tại nhà hàng BASILICO – Nguyên liệu, công thức, thông tin dinh dưỡng và gợi ý phối hợp.">
+  <title>Chi Tiết Món | BASILICO Nhà Hàng</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../global.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chi-tiet.css">
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-inner"><span class="preloader-logo">BASILICO</span>
+      <div class="preloader-progress"><div class="preloader-progress-bar" id="preloaderBar"></div></div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg" aria-label="Điều hướng chính">
+      <div class="container">
+        <a class="navbar-brand" href="../TrangChu/index.html"><span class="logo-text">BASILICO</span></a>
+        <div class="collapse navbar-collapse justify-content-center">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="../TrangChu/index.html">TRANG CHỦ</a></li>
+            <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">THỰC ĐƠN</a></li>
+            <li class="nav-item"><a class="nav-link" href="../GioiThieu/index.html">GIỚI THIỆU</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Blog/index.html">TIN TỨC</a></li>
+            <li class="nav-item"><a class="nav-link" href="../LienHe/index.html">LIÊN HỆ</a></li>
+          </ul>
+        </div>
+        <div class="header-actions">
+          <a href="../DatBan/index.html" class="btn btn-book-table">ĐẶT BÀN</a>
+          <button class="hamburger-btn d-lg-none" id="hd-10" type="button" aria-label="Mở menu" aria-expanded="false"><i class="bi bi-list"></i></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <aside class="mobile-sidebar" id="mobileSidebar" aria-label="Menu di động">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Đóng menu"><i class="bi bi-x-lg"></i></button>
+    <nav><ul class="sidebar-nav">
+      <li><a href="../TrangChu/index.html">TRANG CHỦ</a></li>
+      <li><a href="index.html" class="active">THỰC ĐƠN</a></li>
+      <li><a href="../GioiThieu/index.html">GIỚI THIỆU</a></li>
+      <li><a href="../Blog/index.html">TIN TỨC</a></li>
+      <li><a href="../LienHe/index.html">LIÊN HỆ</a></li>
+    </ul></nav>
+    <div class="sidebar-cta"><a href="../DatBan/index.html" class="btn btn-book-table w-100">ĐẶT BÀN NGAY</a></div>
+    <div class="sidebar-social">
+      <a href="https://facebook.com/basilico" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="https://instagram.com/basilico" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="mailto:Basilicofood123@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <!-- BREADCRUMB -->
+    <section class="detail-breadcrumb">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../TrangChu/index.html">Trang Chủ</a></li>
+            <li class="breadcrumb-item"><a href="index.html">Thực Đơn</a></li>
+            <li class="breadcrumb-item active" aria-current="page" id="breadcrumbDish">Chi Tiết Món</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- CHI TIẾT MÓN -->
+    <section class="section-dish-detail">
+      <div class="container">
+        <div class="row g-5 align-items-start">
+
+          <!-- Cột trái: Hình ảnh -->
+          <div class="col-lg-6 reveal-left">
+            <div class="dish-detail-gallery">
+              <div class="dish-detail-main-img">
+                <img id="dishMainImg" src="" alt="" loading="eager">
+                <div class="dish-detail-badges" id="dishBadges"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cột phải: Thông tin -->
+          <div class="col-lg-6 reveal-right">
+            <div class="dish-detail-info">
+              <span class="dish-detail-cat" id="dishCat"></span>
+              <h1 id="dishName" class="dish-detail-name"></h1>
+              <p class="dish-detail-desc" id="dishDesc"></p>
+
+              <div class="dish-detail-price-block">
+                <span class="dish-detail-price" id="dishPrice"></span>
+                <span class="dish-detail-note">Đã bao gồm VAT 8%</span>
+              </div>
+
+              <!-- Thông tin thêm -->
+              <div class="dish-detail-meta-grid" id="dishMeta">
+                <div class="meta-item">
+                  <i class="bi bi-clock"></i>
+                  <div><strong>Thời gian</strong><span id="metaTime">15–25 phút</span></div>
+                </div>
+                <div class="meta-item">
+                  <i class="bi bi-fire"></i>
+                  <div><strong>Calories</strong><span id="metaCal">350–500 kcal</span></div>
+                </div>
+                <div class="meta-item">
+                  <i class="bi bi-people"></i>
+                  <div><strong>Phục vụ</strong><span id="metaServe">1 người</span></div>
+                </div>
+                <div class="meta-item">
+                  <i class="bi bi-star-fill"></i>
+                  <div><strong>Đánh giá</strong><span id="metaRating">4.8/5</span></div>
+                </div>
+              </div>
+
+              <!-- Nguyên liệu -->
+              <div class="dish-detail-section">
+                <h3><i class="bi bi-basket"></i> Nguyên Liệu Chính</h3>
+                <ul class="ingredient-list" id="ingredientList"></ul>
+              </div>
+
+              <!-- Dị ứng -->
+              <div class="dish-detail-section">
+                <h3><i class="bi bi-exclamation-triangle"></i> Thông Tin Dị Ứng</h3>
+                <div class="allergen-tags" id="allergenTags"></div>
+              </div>
+
+              <!-- Gợi ý phối hợp -->
+              <div class="dish-detail-section">
+                <h3><i class="bi bi-cup-hot"></i> Gợi Ý Phối Hợp</h3>
+                <p class="pairing-text" id="pairingText"></p>
+              </div>
+
+              <!-- CTA -->
+              <div class="dish-detail-actions">
+                <a href="../DatBan/index.html" class="btn btn-gold btn-lg">
+                  <i class="bi bi-calendar-check"></i> ĐẶT BÀN ĐỂ THƯỞNG THỨC
+                </a>
+                <a href="tel:0901234567" class="btn btn-outline-gold btn-lg">
+                  <i class="bi bi-telephone"></i> GỌI ĐẶT MÓN
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GHI CHÚ ĐẦU BẾP -->
+    <section class="section-chef-note">
+      <div class="container">
+        <div class="chef-note-card reveal-up">
+          <div class="chef-note-icon"><i class="bi bi-chat-quote"></i></div>
+          <h3>Lời Từ Đầu Bếp</h3>
+          <blockquote id="chefNote">
+            "Mỗi món ăn tại BASILICO đều là một câu chuyện — từ nguyên liệu tươi nhất được tuyển chọn mỗi sáng, đến kỹ thuật nấu nướng truyền thống Pháp được giữ gìn qua nhiều thế hệ."
+          </blockquote>
+          <p class="chef-name">— Chef Đức, Bếp trưởng BASILICO</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓN LIÊN QUAN -->
+    <section class="section-related">
+      <div class="container">
+        <div class="section-header text-center reveal-up">
+          <span class="section-badge"><i class="bi bi-grid-3x3-gap"></i> GỢI Ý</span>
+          <h2>Món Ăn Liên Quan</h2>
+          <p class="section-subtitle">Bạn có thể thích những món này</p>
+        </div>
+        <div class="related-grid" id="relatedGrid">
+          <!-- JS sẽ render -->
+        </div>
+        <div class="text-center mt-4 reveal-up">
+          <a href="index.html" class="btn btn-outline-gold"><i class="bi bi-arrow-left"></i> Quay Lại Thực Đơn</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-3 col-md-6">
+          <a href="../TrangChu/index.html" class="footer-logo">BASILICO</a>
+          <p class="footer-tagline">Nhà Hàng . Bar . Cà Phê . Bistro</p>
+          <p class="footer-desc">Trải nghiệm ẩm thực Pháp tinh tế trong không gian ấm cúng và sang trọng từ năm 2010.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com/basilico" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://instagram.com/basilico" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="mailto:Basilicofood123@gmail.com" class="social-icon" aria-label="Email"><i class="bi bi-envelope"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-heading">GIỜ MỞ CỬA</h5>
+          <ul class="footer-list">
+            <li>T2 – T6: <span>08:00 – 22:00</span></li>
+            <li>Thứ Bảy: <span>10:00 – 23:00</span></li>
+            <li>Chủ Nhật: <span>10:00 – 21:00</span></li>
+            <li class="footer-happy-hour"><i class="bi bi-star-fill"></i> Giờ Vàng: T6 17:00–19:00</li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-heading">ĐỊA CHỈ</h5>
+          <p class="footer-address">123 Đường Nguyễn Huệ,<br>Quận 1, TP. Hồ Chí Minh</p>
+          <p><a href="mailto:Basilicofood123@gmail.com" class="footer-link"><i class="bi bi-envelope"></i> Basilicofood123@gmail.com</a></p>
+          <p><a href="tel:0901234567" class="footer-phone"><i class="bi bi-telephone"></i> 090-123-4567</a></p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-heading">LIÊN KẾT NHANH</h5>
+          <ul class="footer-list">
+            <li><a href="../TrangChu/index.html" class="footer-link">Trang Chủ</a></li>
+            <li><a href="index.html" class="footer-link">Thực Đơn</a></li>
+            <li><a href="../GioiThieu/index.html" class="footer-link">Giới Thiệu</a></li>
+            <li><a href="../DatBan/index.html" class="footer-link">Đặt Bàn</a></li>
+            <li><a href="../Blog/index.html" class="footer-link">Tin Tức</a></li>
+            <li><a href="../LienHe/index.html" class="footer-link">Liên Hệ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center">
+        <p>&copy; 2026 BASILICO. Bảo lưu mọi quyền.</p>
+        <div class="footer-legal"><a href="../BaoMat/index.html">BẢO MẬT</a><a href="../DieuKhoan/index.html">ĐIỀU KHOẢN</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="fab-scroll-top" id="fab-scroll-top" aria-label="Cuộn lên"><i class="bi bi-arrow-up"></i></button>
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/chi-tiet.js"></script>
+</body>
+</html>

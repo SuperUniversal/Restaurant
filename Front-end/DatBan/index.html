@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Đặt bàn trực tuyến tại nhà hàng BASILICO – Chọn khu vực, giờ đến và số khách. Xác nhận tức thì.">
+  <title>Đặt Bàn | BASILICO Nhà Hàng</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../global.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <span class="preloader-logo">BASILICO</span>
+      <div class="preloader-progress"><div class="preloader-progress-bar" id="preloaderBar"></div></div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg" aria-label="Điều hướng chính">
+      <div class="container">
+        <a class="navbar-brand" href="../TrangChu/index.html">
+          <span class="logo-text">BASILICO</span>
+        </a>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarMain">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="../TrangChu/index.html">TRANG CHỦ</a></li>
+            <li class="nav-item"><a class="nav-link" href="../ThucDon/index.html">THỰC ĐƠN</a></li>
+            <li class="nav-item"><a class="nav-link" href="../GioiThieu/index.html">GIỚI THIỆU</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Blog/index.html">TIN TỨC</a></li>
+            <li class="nav-item"><a class="nav-link" href="../LienHe/index.html">LIÊN HỆ</a></li>
+          </ul>
+        </div>
+        <div class="header-actions">
+          <a href="#reservation-form" class="btn btn-book-table active" aria-current="page">ĐẶT BÀN</a>
+          <button class="hamburger-btn d-lg-none" id="hd-10" type="button" aria-label="Mở menu" aria-expanded="false">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <aside class="mobile-sidebar" id="mobileSidebar" aria-label="Menu di động">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Đóng menu"><i class="bi bi-x-lg"></i></button>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="../TrangChu/index.html">TRANG CHỦ</a></li>
+        <li><a href="../ThucDon/index.html">THỰC ĐƠN</a></li>
+        <li><a href="../GioiThieu/index.html">GIỚI THIỆU</a></li>
+        <li><a href="../Blog/index.html">TIN TỨC</a></li>
+        <li><a href="../LienHe/index.html">LIÊN HỆ</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-cta"><a href="#reservation-form" class="btn btn-book-table w-100">ĐẶT BÀN NGAY</a></div>
+    <div class="sidebar-social">
+      <a href="https://facebook.com/basilico" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="https://instagram.com/basilico" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="mailto:Basilicofood123@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="page-hero-bg">
+        <img src="../../assets/french_wine_pouring.png" alt="Dịch vụ rượu vang BASILICO" loading="eager">
+      </div>
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content container">
+        <h1 class="animate-entry">Đặt Bàn</h1>
+        <nav aria-label="Breadcrumb" class="animate-entry">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../TrangChu/index.html">Trang Chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Đặt Bàn</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+
+    <!-- FORM ĐẶT BÀN -->
+    <section class="section-reservation-page" id="reservation-form">
+      <div class="container">
+        <div class="row g-5 align-items-start">
+
+          <!-- Cột trái: Thông tin -->
+          <div class="col-lg-5 reveal-left">
+            <span class="section-badge"><i class="bi bi-calendar-check"></i> ĐẶT BÀN TRỰC TUYẾN</span>
+            <h2>Đặt Chỗ Của Bạn</h2>
+            <p class="section-subtitle">Điền thông tin bên dưới để đặt bàn. Chúng tôi sẽ xác nhận qua điện thoại trong vòng 30 phút.</p>
+
+            <div class="rsv-info-cards">
+              <div class="rsv-info-card">
+                <i class="bi bi-clock"></i>
+                <div>
+                  <h4>Giờ Phục Vụ</h4>
+                  <p>T2–T6: 08:00–22:00<br>T7: 10:00–23:00 | CN: 10:00–21:00</p>
+                </div>
+              </div>
+              <div class="rsv-info-card">
+                <i class="bi bi-telephone"></i>
+                <div>
+                  <h4>Đặt Qua Điện Thoại</h4>
+                  <p><a href="tel:0901234567">090-123-4567</a></p>
+                </div>
+              </div>
+              <div class="rsv-info-card">
+                <i class="bi bi-people"></i>
+                <div>
+                  <h4>Sức Chứa</h4>
+                  <p>Trong nhà: 80 khách | Ngoài trời: 40 khách<br>Phòng VIP: 20 khách</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cột phải: Form -->
+          <div class="col-lg-7 reveal-right">
+            <div class="rsv-form-wrapper">
+              <form id="rsvForm" novalidate>
+
+                <div class="row g-3">
+                  <!-- Họ tên -->
+                  <div class="col-md-6">
+                    <label for="rsv-name" class="form-label">Họ và tên *</label>
+                    <input type="text" class="form-control" id="rsv-name" placeholder="Nguyễn Văn A" required>
+                    <div class="invalid-feedback"></div>
+                  </div>
+
+                  <!-- Số điện thoại -->
+                  <div class="col-md-6">
+                    <label for="rsv-phone" class="form-label">Số điện thoại *</label>
+                    <input type="tel" class="form-control" id="rsv-phone" placeholder="0901234567" required>
+                    <div class="invalid-feedback"></div>
+                  </div>
+
+                  <!-- Email -->
+                  <div class="col-md-12">
+                    <label for="rsv-email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="rsv-email" placeholder="email@example.com">
+                    <div class="invalid-feedback"></div>
+                  </div>
+
+                  <!-- Ngày -->
+                  <div class="col-md-4">
+                    <label for="rsv-date" class="form-label">Ngày đến *</label>
+                    <input type="date" class="form-control" id="rsv-date" required>
+                    <div class="invalid-feedback"></div>
+                  </div>
+
+                  <!-- Giờ -->
+                  <div class="col-md-4">
+                    <label for="rsv-time" class="form-label">Giờ đến *</label>
+                    <select class="form-select" id="rsv-time" required>
+                      <option value="">Chọn giờ</option>
+                      <option>08:00</option><option>09:00</option><option>10:00</option>
+                      <option>11:00</option><option>11:30</option><option>12:00</option>
+                      <option>12:30</option><option>13:00</option><option>17:00</option>
+                      <option>17:30</option><option>18:00</option><option>18:30</option>
+                      <option>19:00</option><option>19:30</option><option>20:00</option>
+                      <option>20:30</option><option>21:00</option>
+                    </select>
+                    <div class="invalid-feedback"></div>
+                  </div>
+
+                  <!-- Số khách -->
+                  <div class="col-md-4">
+                    <label for="rsv-guests" class="form-label">Số khách *</label>
+                    <select class="form-select" id="rsv-guests" required>
+                      <option value="">Chọn</option>
+                      <option>1 người</option><option>2 người</option>
+                      <option>3 người</option><option>4 người</option>
+                      <option>5 người</option><option>6 người</option>
+                      <option>7-10 người</option><option>10-20 người</option>
+                      <option>Trên 20 người</option>
+                    </select>
+                    <div class="invalid-feedback"></div>
+                  </div>
+
+                  <!-- Khu vực ngồi -->
+                  <div class="col-md-12">
+                    <label class="form-label">Khu vực ngồi</label>
+                    <div class="area-options">
+                      <label class="area-option">
+                        <input type="radio" name="area" value="indoor" checked>
+                        <div class="area-card">
+                          <i class="bi bi-house-door"></i>
+                          <span>Trong nhà</span>
+                          <small>Điều hòa, yên tĩnh</small>
+                        </div>
+                      </label>
+                      <label class="area-option">
+                        <input type="radio" name="area" value="outdoor">
+                        <div class="area-card">
+                          <i class="bi bi-tree"></i>
+                          <span>Ngoài trời</span>
+                          <small>Sân vườn, thoáng mát</small>
+                        </div>
+                      </label>
+                      <label class="area-option">
+                        <input type="radio" name="area" value="vip">
+                        <div class="area-card">
+                          <i class="bi bi-gem"></i>
+                          <span>Phòng VIP</span>
+                          <small>Riêng tư, sang trọng</small>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Yêu cầu đặc biệt -->
+                  <div class="col-md-12">
+                    <label for="rsv-note" class="form-label">Yêu cầu đặc biệt</label>
+                    <textarea class="form-control" id="rsv-note" rows="3"
+                      placeholder="Ví dụ: Tiệc sinh nhật, dị ứng thực phẩm, ghế cho trẻ em..."></textarea>
+                  </div>
+
+                  <!-- Nút gửi -->
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-gold btn-lg w-100" id="rsv-submit">
+                      <i class="bi bi-check-circle"></i> XÁC NHẬN ĐẶT BÀN
+                    </button>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CHÍNH SÁCH HỦY BÀN — Accordion FAQ -->
+    <section class="section-policy">
+      <div class="container">
+        <div class="section-header text-center reveal-up">
+          <span class="section-badge"><i class="bi bi-info-circle"></i> CHÍNH SÁCH</span>
+          <h2>Điều Khoản Đặt Bàn</h2>
+        </div>
+
+        <div class="accordion" id="policyAccordion">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#policy1">
+                <i class="bi bi-clock-history"></i> Thời gian giữ bàn
+              </button>
+            </h3>
+            <div id="policy1" class="accordion-collapse collapse show" data-bs-parent="#policyAccordion">
+              <div class="accordion-body">
+                Chúng tôi giữ bàn trong vòng <strong>15 phút</strong> kể từ giờ đặt. Nếu bạn đến trễ hơn, vui lòng liên hệ trước qua số <a href="tel:0901234567">090-123-4567</a> để chúng tôi sắp xếp.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#policy2">
+                <i class="bi bi-x-circle"></i> Chính sách hủy đặt bàn
+              </button>
+            </h3>
+            <div id="policy2" class="accordion-collapse collapse" data-bs-parent="#policyAccordion">
+              <div class="accordion-body">
+                Bạn có thể hủy đặt bàn <strong>miễn phí trước 2 giờ</strong> so với giờ đặt. Hủy muộn hơn hoặc không đến (no-show) có thể ảnh hưởng đến các lần đặt bàn tiếp theo.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#policy3">
+                <i class="bi bi-people"></i> Nhóm đông (trên 10 người)
+              </button>
+            </h3>
+            <div id="policy3" class="accordion-collapse collapse" data-bs-parent="#policyAccordion">
+              <div class="accordion-body">
+                Đối với nhóm từ 10 người trở lên, vui lòng đặt trước <strong>tối thiểu 24 giờ</strong> và có thể yêu cầu đặt cọc 30% giá trị dự kiến. Chúng tôi sẽ liên hệ xác nhận chi tiết.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#policy4">
+                <i class="bi bi-gift"></i> Tổ chức sự kiện riêng
+              </button>
+            </h3>
+            <div id="policy4" class="accordion-collapse collapse" data-bs-parent="#policyAccordion">
+              <div class="accordion-body">
+                BASILICO hỗ trợ tổ chức tiệc sinh nhật, họp mặt, sự kiện công ty. Liên hệ email <a href="mailto:Basilicofood123@gmail.com">Basilicofood123@gmail.com</a> hoặc gọi <a href="tel:0901234567">090-123-4567</a> để được tư vấn miễn phí.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-3 col-md-6">
+          <a href="../TrangChu/index.html" class="footer-logo">BASILICO</a>
+          <p class="footer-tagline">Nhà Hàng . Bar . Cà Phê . Bistro</p>
+          <p class="footer-desc">Trải nghiệm ẩm thực Pháp tinh tế trong không gian ấm cúng và sang trọng từ năm 2010.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com/basilico" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://instagram.com/basilico" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="mailto:Basilicofood123@gmail.com" class="social-icon" aria-label="Email"><i class="bi bi-envelope"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-heading">GIỜ MỞ CỬA</h5>
+          <ul class="footer-list">
+            <li>T2 – T6: <span>08:00 – 22:00</span></li>
+            <li>Thứ Bảy: <span>10:00 – 23:00</span></li>
+            <li>Chủ Nhật: <span>10:00 – 21:00</span></li>
+            <li class="footer-happy-hour"><i class="bi bi-star-fill"></i> Giờ Vàng: T6 17:00–19:00</li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-heading">ĐỊA CHỈ</h5>
+          <p class="footer-address">123 Đường Nguyễn Huệ,<br>Quận 1, TP. Hồ Chí Minh</p>
+          <p><a href="mailto:Basilicofood123@gmail.com" class="footer-link"><i class="bi bi-envelope"></i> Basilicofood123@gmail.com</a></p>
+          <p><a href="tel:0901234567" class="footer-phone"><i class="bi bi-telephone"></i> 090-123-4567</a></p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-heading">LIÊN KẾT NHANH</h5>
+          <ul class="footer-list">
+            <li><a href="../TrangChu/index.html" class="footer-link">Trang Chủ</a></li>
+            <li><a href="../ThucDon/index.html" class="footer-link">Thực Đơn</a></li>
+            <li><a href="../GioiThieu/index.html" class="footer-link">Giới Thiệu</a></li>
+            <li><a href="#reservation-form" class="footer-link">Đặt Bàn</a></li>
+            <li><a href="../Blog/index.html" class="footer-link">Tin Tức</a></li>
+            <li><a href="../LienHe/index.html" class="footer-link">Liên Hệ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center">
+        <p>&copy; 2026 BASILICO. Bảo lưu mọi quyền.</p>
+        <div class="footer-legal"><a href="../BaoMat/index.html">BẢO MẬT</a><a href="../DieuKhoan/index.html">ĐIỀU KHOẢN</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="fab-scroll-top" id="fab-scroll-top" aria-label="Cuộn lên đầu trang"><i class="bi bi-arrow-up"></i></button>
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- MODAL XÁC NHẬN -->
+  <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmModalLabel"><i class="bi bi-check-circle-fill text-success"></i> Xác Nhận Đặt Bàn</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+        </div>
+        <div class="modal-body" id="confirmBody">
+          <!-- JS sẽ render nội dung -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Chỉnh sửa</button>
+          <button type="button" class="btn btn-gold" id="confirmSubmit">Xác nhận</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

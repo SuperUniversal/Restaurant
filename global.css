@@ -1,0 +1,1291 @@
+/* ================================================================
+   BASILICO RESTAURANT — Global Stylesheet
+   Source of Truth: docs/DesignSystem.md
+   Scope: Dùng chung cho TẤT CẢ trang trong dự án
+          (TrangChu, ThucDon, DatBan, GioiThieu, Blog, LienHe)
+   Stack: Bootstrap 5.3 + Vanilla CSS
+   ================================================================ */
+
+
+/* ================================================================
+   1. DESIGN TOKENS (CSS Custom Properties)
+   ================================================================ */
+:root {
+  /* ---- Primary Colors ---- */
+  --gold: #C9A96E;
+  --gold-dark: #B8943F;
+  --gold-light: #E8D5A8;
+
+  /* ---- CTA ---- */
+  --cta: #F97316;
+  --cta-hover: #EA580C;
+  --cta-light: #FFF7ED;
+
+  /* ---- Backgrounds ---- */
+  --bg-body: #FAFAF5;
+  --bg-cream: #FDF8F0;
+  --bg-warm: #F5F0E8;
+  --bg-dark: #1A1A2E;
+  --bg-navy: #16213E;
+
+  /* ---- Text ---- */
+  --text-heading: #1A1A2E;
+  --text-body: #374151;
+  --text-muted: #6B7280;
+  --text-light: #9CA3AF;
+
+  /* ---- Semantic ---- */
+  --success: #059669;
+  --error: #DC2626;
+  --warning: #D97706;
+  --info: #2563EB;
+
+  /* ---- Spacing ---- */
+  --section-py: 100px;
+  --section-py-md: 80px;
+  --section-py-sm: 60px;
+
+  /* ---- Borders & Radius ---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 100px;
+
+  /* ---- Shadows ---- */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+  --shadow-gold: 0 8px 25px rgba(201,169,110,0.3);
+
+  /* ---- Transitions ---- */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease-in-out;
+
+  /* ---- Z-Index Scale ---- */
+  --z-preloader: 9999;
+  --z-fab: 90;
+  --z-toast: 80;
+  --z-modal: 60;
+  --z-overlay: 50;
+  --z-header: 30;
+  --z-dropdown: 20;
+}
+
+
+/* ================================================================
+   2. BASE RESETS & TYPOGRAPHY
+   ================================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-body);
+  background-color: var(--bg-body);
+  overflow-x: hidden;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--text-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 em, h1 em, h3 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+a:hover {
+  color: var(--gold-dark);
+}
+
+/* ---- Global Focus States (CRITICAL — Accessibility) ---- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ---- Global Interactive Cursors ---- */
+a, button, [role="tab"], [role="button"],
+.gallery-panel, .blog-card, .order-card {
+  cursor: pointer;
+}
+
+
+/* ================================================================
+   3. EYEBROW LABELS
+   ================================================================ */
+.eyebrow {
+  display: inline-block;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.eyebrow-light { color: var(--gold-light); }
+.eyebrow-gold  { color: var(--gold); }
+
+/* Section subtitle — constrained line length for readability */
+.section-subtitle {
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+
+/* ================================================================
+   4. BUTTONS
+   ================================================================ */
+.btn {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  padding: 14px 32px;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.btn-cta-primary {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+}
+.btn-cta-primary:hover {
+  background: var(--gold-dark);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-cta-ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.6);
+}
+.btn-cta-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+.btn-outline-gold:hover {
+  background: var(--gold);
+  color: var(--bg-dark);
+}
+
+.btn-outline-dark {
+  background: transparent;
+  color: var(--text-heading);
+  border: 1px solid var(--text-heading);
+}
+.btn-outline-dark:hover {
+  background: var(--text-heading);
+  color: #fff;
+}
+
+.btn-book-table {
+  background: var(--gold);
+  color: var(--bg-dark);
+  border: 1px solid var(--gold);
+  font-size: 14px;
+  padding: 12px 32px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  border-radius: 8px;
+  min-height: 44px;
+}
+.btn-book-table:hover {
+  background: var(--gold-dark);
+  border-color: var(--gold-dark);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(201,169,110,0.3);
+}
+
+/* Ripple effect */
+.btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(0);
+  animation: rippleExpand 0.6s ease-out;
+  pointer-events: none;
+}
+@keyframes rippleExpand {
+  to { transform: scale(4); opacity: 0; }
+}
+
+
+/* ================================================================
+   5. HEADER NAVIGATION (shared across all pages)
+   ================================================================ */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  transition: background var(--transition-base), box-shadow var(--transition-base), padding var(--transition-base);
+  padding: 14px 0;
+}
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.1);
+  padding: 10px 0;
+}
+
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-heading);
+  letter-spacing: 5px;
+  display: block;
+  line-height: 1;
+  transition: color var(--transition-base);
+}
+
+.navbar-brand { padding: 0; }
+.navbar-brand:hover { text-decoration: none; }
+.navbar-brand:hover .logo-text { color: var(--gold); }
+
+.nav-link {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-heading) !important;
+  padding: 8px 22px !important;
+  transition: color var(--transition-fast);
+  position: relative;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold) !important;
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 1px;
+}
+
+.dropdown-menu {
+  background: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 12px 0;
+  min-width: 200px;
+}
+.dropdown-item {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 14px;
+  padding: 8px 20px;
+  transition: all var(--transition-fast);
+}
+.dropdown-item:hover {
+  background: var(--bg-cream);
+  color: var(--gold);
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  color: var(--text-heading);
+  font-size: 28px;
+  cursor: pointer;
+  padding: 4px;
+  transition: color var(--transition-fast);
+}
+.hamburger-btn:hover {
+  color: var(--gold);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+
+/* ================================================================
+   6. MOBILE SIDEBAR (shared across all pages)
+   ================================================================ */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: var(--z-overlay);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+}
+.sidebar-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 340px;
+  max-width: 88vw;
+  height: 100vh;
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  z-index: calc(var(--z-overlay) + 1);
+  transform: translateX(100%);
+  transition: transform var(--transition-slow);
+  padding: 76px 34px 34px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: -8px 0 30px rgba(0,0,0,0.4);
+}
+.mobile-sidebar.open {
+  transform: translateX(0);
+}
+
+/* Logo nhỏ trên sidebar */
+.mobile-sidebar::before {
+  content: 'BASILICO';
+  display: block;
+  font-family: 'Playfair Display SC', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 12px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(200,169,105,0.3);
+}
+
+.sidebar-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+.sidebar-close:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+}
+.sidebar-nav li {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.sidebar-nav a {
+  display: block;
+  padding: 16px 0;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  transition: all var(--transition-fast);
+  position: relative;
+  padding-left: 0;
+}
+.sidebar-nav a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width var(--transition-fast);
+}
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  color: var(--gold);
+  padding-left: 18px;
+}
+.sidebar-nav a:hover::before,
+.sidebar-nav a.active::before {
+  width: 10px;
+}
+
+.sidebar-cta {
+  margin-bottom: 30px;
+}
+.sidebar-cta .btn-book-table {
+  background: linear-gradient(135deg, var(--gold), #d4a84b);
+  color: #1a1a2e;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 15px rgba(200,169,105,0.3);
+}
+.sidebar-cta .btn-book-table:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200,169,105,0.5);
+}
+
+.sidebar-social {
+  display: flex;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(200,169,105,0.2);
+}
+.sidebar-social a {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid rgba(200,169,105,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 16px;
+  transition: all var(--transition-fast);
+  background: rgba(200,169,105,0.08);
+}
+.sidebar-social a:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #1a1a2e;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(200,169,105,0.4);
+}
+
+
+/* ================================================================
+   7. FOOTER (shared across all pages)
+   ================================================================ */
+.site-footer {
+  background: var(--bg-dark);
+  color: rgba(255,255,255,0.7);
+  padding: 80px 0 0;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 4px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.footer-logo:hover { color: var(--gold); }
+
+.footer-tagline {
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.footer-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.footer-heading {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 16px;
+  transition: all var(--transition-fast);
+}
+.social-icon:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-list li {
+  padding: 6px 0;
+  font-size: 14px;
+}
+.footer-list li span {
+  color: rgba(255,255,255,0.5);
+}
+.footer-happy-hour {
+  color: var(--gold) !important;
+  font-weight: 500;
+  margin-top: 8px;
+}
+.footer-happy-hour i { font-size: 14px; }
+
+.footer-address {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.footer-link {
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  transition: color var(--transition-fast);
+}
+.footer-link:hover { color: var(--gold); }
+.footer-link i { color: var(--gold); margin-right: 6px; }
+
+.footer-phone {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  transition: color var(--transition-fast);
+}
+.footer-phone:hover { color: #fff; }
+.footer-phone i { font-size: 16px; margin-right: 6px; }
+
+/* Newsletter */
+.newsletter-form { margin-top: 8px; }
+.newsletter-input-group {
+  display: flex;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.newsletter-input-group .form-control {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  padding: 12px 14px;
+}
+.newsletter-input-group .form-control::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+.newsletter-input-group .form-control:focus {
+  box-shadow: none;
+}
+.newsletter-submit {
+  background: var(--gold);
+  border: none;
+  color: #fff;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.newsletter-submit:hover {
+  background: var(--gold-dark);
+}
+
+.newsletter-feedback {
+  font-size: 13px;
+  margin-top: 6px;
+  min-height: 18px;
+}
+.newsletter-feedback.success { color: var(--success); }
+.newsletter-feedback.error { color: #FCA5A5; }
+
+.form-check-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+.form-check-label a {
+  color: var(--gold);
+  text-decoration: underline;
+}
+.form-check-input:checked {
+  background-color: var(--gold);
+  border-color: var(--gold);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 60px;
+  padding: 20px 0;
+}
+.footer-bottom p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  margin: 0;
+}
+.footer-legal {
+  display: flex;
+  gap: 24px;
+}
+.footer-legal a {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  transition: color var(--transition-fast);
+}
+.footer-legal a:hover { color: var(--gold); }
+
+
+/* ================================================================
+   8. FAB SCROLL-TO-TOP (shared)
+   ================================================================ */
+.fab-scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: var(--z-fab);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+}
+.fab-scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.fab-scroll-top:hover {
+  background: var(--gold-dark);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold);
+}
+
+
+/* ================================================================
+   9. TOAST NOTIFICATIONS (shared)
+   ================================================================ */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toast-item {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 300px;
+  max-width: 400px;
+  animation: slideInRight 0.3s ease;
+  font-size: 14px;
+}
+.toast-item.success { border-left: 4px solid var(--success); }
+.toast-item.error   { border-left: 4px solid var(--error); }
+.toast-item.info    { border-left: 4px solid var(--info); }
+
+.toast-item i { font-size: 20px; }
+.toast-item.success i { color: var(--success); }
+.toast-item.error i   { color: var(--error); }
+
+.toast-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+
+/* ================================================================
+   10. PRELOADER (shared)
+   ================================================================ */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-preloader);
+  background: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-inner { text-align: center; }
+
+.preloader-ring {
+  width: 120px;
+  height: 120px;
+  border: 2px solid rgba(201,169,110,0.15);
+  border-top: 2px solid var(--gold);
+  border-radius: 50%;
+  margin: 0 auto 28px;
+  animation: preloaderSpin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  position: relative;
+}
+.preloader-ring::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 2px solid rgba(201,169,110,0.08);
+  border-bottom: 2px solid var(--gold-light);
+  border-radius: 50%;
+  animation: preloaderSpin 1.8s cubic-bezier(0.5, 0, 0.5, 1) infinite reverse;
+}
+
+@keyframes preloaderSpin {
+  to { transform: rotate(360deg); }
+}
+
+.preloader-brand {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 6px;
+  animation: preloaderPulse 2s ease-in-out infinite;
+}
+.preloader-tagline {
+  display: block;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+@keyframes preloaderPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.preloader-progress {
+  width: 180px;
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  margin: 28px auto 0;
+  overflow: hidden;
+}
+.preloader-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+
+/* ================================================================
+   11. PAGE HERO — Banner trang con (shared across subpages)
+   ================================================================ */
+.page-hero {
+  position: relative;
+  height: 45vh;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.page-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,26,46,0.7), rgba(26,26,46,0.4));
+  z-index: 1;
+}
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.page-hero-content h1 {
+  font-size: clamp(36px, 6vw, 56px);
+  color: #fff;
+  margin-bottom: 12px;
+}
+.page-hero .breadcrumb {
+  justify-content: center;
+  margin: 0;
+}
+.page-hero .breadcrumb-item a {
+  color: var(--gold);
+  text-decoration: none;
+}
+.page-hero .breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+.page-hero .breadcrumb-item.active {
+  color: rgba(255,255,255,0.7);
+}
+.page-hero .breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(255,255,255,0.4);
+}
+
+
+/* ================================================================
+   12. ANIMATE ENTRY — Staggered fade-in (shared)
+   ================================================================ */
+.animate-entry {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.7s ease forwards;
+}
+.animate-entry:nth-child(1) { animation-delay: 0s; }
+.animate-entry:nth-child(2) { animation-delay: 0.2s; }
+.animate-entry:nth-child(3) { animation-delay: 0.4s; }
+.animate-entry:nth-child(4) { animation-delay: 0.6s; }
+.animate-entry:nth-child(5) { animation-delay: 0.8s; }
+
+
+/* ================================================================
+   13. SCROLL REVEAL (shared)
+   ================================================================ */
+.reveal-up,
+.reveal-left,
+.reveal-right,
+.reveal-scale,
+.reveal-rotate {
+  opacity: 0;
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-up    { transform: translateY(50px); }
+.reveal-left  { transform: translateX(-50px); }
+.reveal-right { transform: translateX(50px); }
+.reveal-scale { transform: scale(0.85); }
+.reveal-rotate { transform: perspective(600px) rotateY(8deg) translateX(30px); }
+
+.reveal-up.revealed,
+.reveal-left.revealed,
+.reveal-right.revealed,
+.reveal-scale.revealed,
+.reveal-rotate.revealed {
+  opacity: 1;
+  transform: translate(0, 0) scale(1) rotateY(0deg);
+}
+
+.reveal-up[style*="--reveal-delay"],
+.reveal-left[style*="--reveal-delay"],
+.reveal-right[style*="--reveal-delay"] {
+  transition-delay: var(--reveal-delay);
+}
+
+
+/* ================================================================
+   PREMIUM ANIMATIONS — Micro-interactions & Polished Effects
+   ================================================================ */
+
+/* --- Text Reveal: Words appear one by one --- */
+.text-reveal-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.text-reveal-word.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Image reveal: Clip-path wipe --- */
+.img-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-reveal.revealed {
+  clip-path: inset(0 0 0 0);
+}
+
+/* --- Card hover lift --- */
+.card-hover-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease;
+}
+.card-hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Link underline animation --- */
+.link-hover-gold {
+  position: relative;
+  display: inline-block;
+}
+.link-hover-gold::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-hover-gold:hover::after {
+  width: 100%;
+}
+
+/* --- Floating decorative elements --- */
+.float-element {
+  animation: float 6s ease-in-out infinite;
+}
+.float-element-slow {
+  animation: float 8s ease-in-out infinite;
+}
+.float-element-reverse {
+  animation: float 7s ease-in-out infinite reverse;
+}
+
+/* --- Gradient text shimmer (for headings) --- */
+.text-shimmer {
+  background: linear-gradient(120deg, var(--gold) 0%, var(--gold-light) 30%, #fff 50%, var(--gold-light) 70%, var(--gold) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerGold 4s ease-in-out infinite;
+}
+
+/* --- Stagger grid items --- */
+.stagger-grid > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stagger-grid.revealed > *:nth-child(1) { transition-delay: 0s; }
+.stagger-grid.revealed > *:nth-child(2) { transition-delay: 0.1s; }
+.stagger-grid.revealed > *:nth-child(3) { transition-delay: 0.2s; }
+.stagger-grid.revealed > *:nth-child(4) { transition-delay: 0.3s; }
+.stagger-grid.revealed > *:nth-child(5) { transition-delay: 0.4s; }
+.stagger-grid.revealed > *:nth-child(6) { transition-delay: 0.5s; }
+.stagger-grid.revealed > *:nth-child(7) { transition-delay: 0.6s; }
+.stagger-grid.revealed > *:nth-child(8) { transition-delay: 0.7s; }
+.stagger-grid.revealed > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Pulse glow for CTA buttons --- */
+.btn-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* --- Section entrance from scale --- */
+.reveal-zoom {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-zoom.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* --- Parallax layer (CSS only, subtle) --- */
+.parallax-subtle {
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+/* --- Smooth image container --- */
+.img-zoom-container {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+.img-zoom-container img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-zoom-container:hover img {
+  transform: scale(1.06);
+}
+
+
+/* ================================================================
+   12. SHARED KEYFRAME ANIMATIONS
+   ================================================================ */
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes clipReveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+@keyframes shimmerGold {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.4); }
+  50%      { box-shadow: 0 0 20px 4px rgba(201, 169, 110, 0.2); }
+}
+
+
+/* ================================================================
+   13. CURSOR TRAIL (desktop only)
+   ================================================================ */
+.cursor-trail {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: difference;
+}
+.cursor-trail.active { opacity: 0.3; }
+
+@media (hover: none) {
+  .cursor-trail { display: none; }
+}
+
+
+/* ================================================================
+   14. SECTION DIVIDERS (decorative)
+   ================================================================ */
+.section-divider {
+  position: relative;
+  height: 1px;
+  background: transparent;
+  margin: 0;
+  border: none;
+  overflow: visible;
+}
+.section-divider::before {
+  content: '✦';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: var(--gold);
+  background: var(--bg-body);
+  padding: 0 20px;
+}
+.section-divider::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-light), transparent);
+  z-index: -1;
+}
+
+
+/* ================================================================
+   15. SKELETON LOADING (for dynamic content)
+   ================================================================ */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(201, 169, 110, 0.08) 25%,
+    rgba(201, 169, 110, 0.15) 50%,
+    rgba(201, 169, 110, 0.08) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.5s ease infinite;
+  border-radius: var(--radius-sm);
+}
+
+@keyframes skeletonShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+
+/* ================================================================
+   16. REDUCED MOTION
+   ================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal-up, .reveal-left, .reveal-right,
+  .reveal-scale, .reveal-rotate {
+    opacity: 1;
+    transform: none;
+  }
+  .preloader { display: none; }
+  .cursor-trail { display: none; }
+  html { scroll-behavior: auto; }
+}
+
+
+/* ================================================================
+   17. RESPONSIVE BREAKPOINTS (global)
+   ================================================================ */
+@media (max-width: 991.98px) {
+  :root {
+    --section-py: var(--section-py-md);
+  }
+  .page-hero { height: 35vh; min-height: 260px; }
+}
+
+@media (max-width: 575.98px) {
+  :root {
+    --section-py: var(--section-py-sm);
+  }
+  .page-hero { height: 30vh; min-height: 220px; }
+  .footer-bottom { text-align: center; }
+  .footer-bottom .d-flex { flex-direction: column; gap: 12px; }
+}
