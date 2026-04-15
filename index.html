@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BASILICO | Nhà Hàng Pháp Cao Cấp</title>
+  <meta name="description" content="BASILICO – Nhà hàng Pháp cao cấp. Trải nghiệm ẩm thực tinh tế, đặt bàn trực tuyến và khám phá thực đơn đặc biệt.">
+  <meta http-equiv="refresh" content="3; url=Front-end/TrangChu/index.html">
+
+  <!-- Preconnect fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Reset & Base ───────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:   #c9a96e;
+      --gold-lt: #e2c99a;
+      --dark:   #0d0b07;
+      --cream:  #f5f0e8;
+      --trans:  cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    html, body {
+      width: 100%; height: 100%;
+      overflow: hidden;
+      background: var(--dark);
+      font-family: 'Be Vietnam Pro', sans-serif;
+    }
+
+    /* ── Background ─────────────────────────────── */
+    .bg {
+      position: fixed; inset: 0;
+      background-image: url('assets/french_restaurant_hero.png');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.06);
+      animation: bg-zoom 3.2s var(--trans) forwards;
+      will-change: transform;
+    }
+    @keyframes bg-zoom {
+      to { transform: scale(1); }
+    }
+
+    /* Layered overlay */
+    .bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at center, rgba(13,11,7,0.45) 0%, rgba(13,11,7,0.85) 100%);
+    }
+
+    /* Noise grain texture */
+    .bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    /* ── Center Stage ───────────────────────────── */
+    .stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      gap: 0;
+      z-index: 10;
+    }
+
+    /* ── Top ornament line ──────────────────────── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fade-up 0.8s var(--trans) 0.4s forwards;
+    }
+    .ornament-line {
+      width: 48px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .ornament-line:last-child {
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .ornament-diamond {
+      width: 6px; height: 6px;
+      border: 1px solid var(--gold);
+      transform: rotate(45deg);
+    }
+
+    /* ── Eyebrow ────────────────────────────────── */
+    .eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      opacity: 0;
+      animation: fade-up 0.8s var(--trans) 0.55s forwards;
+      margin-bottom: 16px;
+    }
+
+    /* ── Logo ───────────────────────────────────── */
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(4rem, 14vw, 9rem);
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: 0.12em;
+      line-height: 1;
+      text-align: center;
+
+      /* Split character animation via CSS clip */
+      opacity: 0;
+      clip-path: inset(0 100% 0 0);
+      animation:
+        logo-reveal 1s var(--trans) 0.7s forwards,
+        logo-glow   3s ease-in-out 1.8s infinite alternate;
+    }
+    @keyframes logo-reveal {
+      to { opacity: 1; clip-path: inset(0 0% 0 0); }
+    }
+    @keyframes logo-glow {
+      from { text-shadow: 0 0 0px transparent; }
+      to   { text-shadow: 0 0 60px rgba(201,169,110,0.18); }
+    }
+
+    /* ── Tagline ────────────────────────────────── */
+    .tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(0.9rem, 2.5vw, 1.25rem);
+      color: var(--gold-lt);
+      letter-spacing: 0.12em;
+      margin-top: 10px;
+      opacity: 0;
+      animation: fade-up 0.8s var(--trans) 1.2s forwards;
+    }
+
+    /* ── Divider ────────────────────────────────── */
+    .divider {
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      margin: 28px 0;
+      opacity: 0;
+      animation: fade-up 0.8s var(--trans) 1.4s forwards;
+    }
+
+    /* ── Status message ─────────────────────────── */
+    .status {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.55);
+      opacity: 0;
+      animation: fade-up 0.8s var(--trans) 1.6s forwards;
+    }
+
+    /* ── Progress bar ───────────────────────────── */
+    .progress-wrap {
+      margin-top: 20px;
+      width: min(240px, 60vw);
+      height: 1px;
+      background: rgba(201,169,110,0.18);
+      overflow: hidden;
+      opacity: 0;
+      animation: fade-up 0.5s ease 1.8s forwards;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+      animation: fill-bar 2s cubic-bezier(0.4, 0, 0.2, 1) 1.9s forwards;
+      box-shadow: 0 0 8px rgba(201,169,110,0.6);
+    }
+    @keyframes fill-bar {
+      to { width: 100%; }
+    }
+
+    /* ── Skip link ──────────────────────────────── */
+    .skip-link {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.35);
+      text-decoration: none;
+      transition: color 0.3s;
+      opacity: 0;
+      animation: fade-up 0.6s ease 2.2s forwards;
+      z-index: 20;
+    }
+    .skip-link:hover { color: var(--gold); }
+    .skip-link::after {
+      content: ' →';
+    }
+
+    /* ── Utilities ──────────────────────────────── */
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Page exit animation ────────────────────── */
+    body.leaving {
+      animation: page-out 0.5s var(--trans) forwards;
+    }
+    @keyframes page-out {
+      to { opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background image -->
+  <div class="bg" aria-hidden="true"></div>
+
+  <!-- Center content -->
+  <main class="stage" role="main">
+
+    <div class="ornament" aria-hidden="true">
+      <span class="ornament-line"></span>
+      <span class="ornament-diamond"></span>
+      <span class="ornament-line"></span>
+    </div>
+
+    <p class="eyebrow">Chào Mừng Đến Với</p>
+
+    <h1 class="logo" id="logo-text">BASILICO</h1>
+
+    <p class="tagline">Ẩm Thực Pháp — Tinh Tế &amp; Hoàn Hảo</p>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <p class="status">Đang mở trang web&hellip;</p>
+
+    <div class="progress-wrap" role="progressbar" aria-label="Đang tải" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+  </main>
+
+  <!-- Manual skip link -->
+  <a href="Front-end/TrangChu/index.html" class="skip-link" id="skipLink">Vào ngay</a>
+
+  <script>
+    // Smooth redirect with page-out animation
+    const DEST = 'Front-end/TrangChu/index.html';
+    const DELAY_MS = 3000;
+
+    setTimeout(() => {
+      document.body.classList.add('leaving');
+      setTimeout(() => { window.location.href = DEST; }, 480);
+    }, DELAY_MS - 480);
+
+    // Skip link — immediate redirect with transition
+    document.getElementById('skipLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      document.body.classList.add('leaving');
+      setTimeout(() => { window.location.href = DEST; }, 480);
+    });
+  </script>
+
+</body>
+</html>
